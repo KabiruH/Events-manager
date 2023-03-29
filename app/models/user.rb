@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has many :attendees
-  has many :events, through: :attendees
+  has_many :attendees
+  has_many :events, through: :attendees
 
   has_secure_password
 end
