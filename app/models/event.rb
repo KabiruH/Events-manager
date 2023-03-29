@@ -1,3 +1,4 @@
 class Event < ApplicationRecord
-  has many :attendees, :sponsors
+  has_many :attendees, :sponsors
+  has_one :speaker
 end

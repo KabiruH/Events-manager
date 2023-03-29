@@ -75,8 +75,8 @@ class UsersController < ApplicationController
         end
     end
 
-    # GET ALL TASK RELATED TO A USER ID
-    def get_all_user_tasks
+    # GET ALL EVENTS RELATED TO A USER ID
+    def get_all_user_events
     end
 
     # private
