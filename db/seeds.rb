@@ -5,16 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first
-
+puts "seeding"
 
 5.times do
   # create a movie with random data
   User.create(
     username: Faker::Internet.username(specifier: 5..10),
-    password_digest: Faker::Internet.password(min_length: 8)
-    email:Faker::Internet.email
-    gender:Faker::Gender.type
-    age:Faker::Number.within(range: 13..70)
+    password_digest: Faker::Internet.password(min_length: 8),
+    email: Faker::Internet.email,
+    gender: Faker::Gender.type,
+    age: Faker::Number.within(range: 13..70)
   )
 end
 
@@ -48,7 +48,7 @@ Event.create(
   date: DateTime.new(2023, 7, 15),
   time: DateTime.new(2023, 7, 15, 10, 0, 0)
 )
-[11:57 AM] Sponsor.create(
+ Sponsor.create(
   title: "Google",
   organisation: "Google Inc.",
   category: "Technology",
@@ -110,3 +110,5 @@ Speaker.create([
     event_id: "EVT003"
   }
  ])
+ 
+ puts "done seeding"

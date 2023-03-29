@@ -1,5 +1,5 @@
 class SponsorsController < ApplicationController
-    class SponsorsController < ApplicationController
+
         def index
           sponsors = Sponsor.all
         end
@@ -14,7 +14,7 @@ class SponsorsController < ApplicationController
           if sponsor.save
             redirect_to sponsors_path, notice: 'Sponsor was successfully created.'
           else
-            render :new
+            render json:new
           end
         end
       
@@ -25,4 +25,4 @@ class SponsorsController < ApplicationController
         end
       end
       
-end
+

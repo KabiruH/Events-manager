@@ -1,5 +1,4 @@
 class AttendeesController < ApplicationController
-    class AttendeesController < ApplicationController
   before_action :set_event
 
   def index
@@ -30,7 +29,7 @@ class AttendeesController < ApplicationController
   def attendee_params
     params.require(:attendee).permit(:name, :email)
   end
-end
+
 
 end
 
