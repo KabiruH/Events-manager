@@ -3,7 +3,7 @@ class CreateSpeakers < ActiveRecord::Migration[7.0]
     create_table :speakers do |t|
       t.string :name
       t.string :email
-      t.string :event_id
+      t.integer :event_id
       t.string :organisation
       t.string :job_title
 
