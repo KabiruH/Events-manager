@@ -1,6 +1,6 @@
 function EventsHome(){
     function Card(){
-        return <div className="flex justify-center p-3">
+        return <div className="flex justify-center p-3 hover:scale-110 ease-in-out duration-300 ">
   <div
     className="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 w-72">
       <img
@@ -23,7 +23,7 @@ function EventsHome(){
     }
     return(
         <div className="w-full bg-gray-100 p-4 flex flex-col gap-4 items-center">
-          <div className="flex gap-2 text-4xl items-center py-5"><div className="h-24 w-24 rounded-full bg-rose-600 text-white flex items-center justify-center"><i className="fa-solid fa-heart"></i></div><h1 className="text-gray-700 border-b-2 border-rose-600">UPCOMING POPULAR EVENTS</h1>
+          <div className="flex gap-2 text-4xl items-center py-5"><div className="h-24 w-24 rounded-full bg-rose-600 text-white flex items-center justify-center"><i className="fa-solid fa-heart"></i></div><h1 className="text-gray-700 border-b-2 border-rose-600 font-bold">UPCOMING POPULAR EVENTS</h1>
           </div>
             <div className="flex w-3/5 justify-evenly flex-wrap items-center m-auto">
             <Card/>
