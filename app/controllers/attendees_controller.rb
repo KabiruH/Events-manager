@@ -2,28 +2,35 @@ class AttendeesController < ApplicationController
   before_action :set_event
 
   def index
-    attendees = event.attendees
-  end
+    render json: Attendee.all, status: :ok
+end
 
-  def new
-    attendee = event.attendees.build
-  end
+# GET
+def show
 
-  def create
-    attendee = event.attendees.build(attendee_params)
-    attendee.user = current_user
+    attendee = Attendee.find_by(id:params[:id])
 
-    if attendee.save
-      redirect_to event_attendees_path(event), notice: 'Attendee was successfully created.'
+    if attendee
+        # return it
+        render json: attendee, status: :ok
     else
-      render :new
+        # throw a not found error
+        render json: {error: "Attendee not found"}, status: :not_found
     end
-  end
+end
+
+# POST /
+def create
+
+    attendee = Attendee.create(attendee_params)
+
+
+end
 
   private
 
   def set_event
-    event = Event.find(params[:event_id])
+    event = Event.find_by(params[:event_id])
   end
 
   def attendee_params
