@@ -1,5 +1,6 @@
 function EventsHome(){
-    function Card(){
+    
+  function Card(){
         return <div className="flex justify-center p-3 hover:scale-110 ease-in-out duration-300 ">
   <div
     className="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 w-72">
