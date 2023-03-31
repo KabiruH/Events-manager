@@ -718,3 +718,24 @@ Processing by SponsorsController#index as HTML
 Completed 204 No Content in 10ms (ActiveRecord: 0.0ms | Allocations: 2364)
 
 
+Started GET "/" for 127.0.0.1 at 2023-03-29 15:48:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.2ms | Allocations: 660)
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 5290)
+
+
+Started GET "/attendeees" for 127.0.0.1 at 2023-03-29 15:48:47 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/attendeees"):
+  
+Started GET "/attendees" for 127.0.0.1 at 2023-03-29 15:48:59 +0300
+Processing by AttendeesController#index as HTML
+Completed 404 Not Found in 19ms (ActiveRecord: 1.0ms | Allocations: 5427)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event without an ID):
+  
+app/controllers/attendees_controller.rb:26:in `set_event'
