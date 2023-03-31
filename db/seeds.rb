@@ -20,7 +20,7 @@ end
 
 Event.create(
   title: "Music Festival",
-  image: "https://example.com/image.jpg",
+  image: "https://www.shutterstock.com/image-photo/stage-concert-light-people-watching-rock-673008964",
   description: "Join us for a day of music, food, and fun!",
   location: "Central Park, New York City",
   age_limit: "18+",
@@ -28,9 +28,19 @@ Event.create(
   date: DateTime.new(2023, 5, 20),
   time: DateTime.new(2023, 5, 20, 12, 0, 0)
 )
+Event.create(  
+title: "Autism foundation",
+image: "https://www.shutterstock.com/image-vector/world-autism-awareness-day-holiday-event-598462586",
+description: "We take a look at how we have come in our knowledge and understanding of Autism",
+location: "Central Park, New York City",
+age_limit: "18+",
+capacity: 5000,
+date: DateTime.new(2023, 5, 20),
+time: DateTime.new(2023, 5, 20, 12, 0, 0)
+)
 Event.create(
   title: "Charity Walk",
-  image: "https://example.com/image.jpg",
+  image: "https://www.shutterstock.com/image-photo/friend-runners-taking-selfie-charity-run-2109966056",
   description: "Join us for a charity walk to raise funds for cancer research.",
   location: "Golden Gate Park, San Francisco",
   age_limit: "All ages",
@@ -39,8 +49,18 @@ Event.create(
   time: DateTime.new(2023, 6, 10, 9, 0, 0)
 )
 Event.create(
+  title: "Fast Festival",
+  image: "https://www.shutterstock.com/image-photo/las-vegas-nvusa-november-2-2018-1241742250",
+  description: "Join the fast family as the new trailer for their new movie Fast X drops.",
+  location: "Golden Gate Park, San Francisco",
+  age_limit: "All ages",
+  capacity: 1000,
+  date: DateTime.new(2023, 6, 10),
+  time: DateTime.new(2023, 6, 10, 9, 0, 0)
+)
+Event.create(
   title: "Tech Conference",
-  image: "https://example.com/image.jpg",
+  image: "https://www.shutterstock.com/image-photo/speaker-giving-talk-on-corporate-business-481869205",
   description: "Join us for a conference on the latest trends in technology.",
   location: "Moscone Center, San Francisco",
   age_limit: "18+",
