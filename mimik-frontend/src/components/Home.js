@@ -1,5 +1,6 @@
 import Highlights from "./Highlights";
 import EventsHome from "./EventsHome";
+import Footer from "./Footer";
 function Home() {
   return <div>
    <div className="h-screen">
@@ -19,6 +20,7 @@ function Home() {
      </div>
      <Highlights/>
      <EventsHome/>
+     <Footer/>
      </div>
 }
 
