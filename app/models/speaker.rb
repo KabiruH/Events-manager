@@ -1,3 +1,3 @@
 class Speaker < ApplicationRecord
-  belongs to :events
+  has_many :events, class_name: 'Event'
 end

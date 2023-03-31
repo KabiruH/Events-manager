@@ -1,3 +1,3 @@
 class Sponsor < ApplicationRecord
-  has many :events
+  has_many :events
 end
