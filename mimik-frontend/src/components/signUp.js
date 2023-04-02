@@ -1,14 +1,58 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [age, setAge] = useState('');
+    const [gender, setGender] = useState('');
+    const [errorMessage, setErrorMessage] = useState(null);
+    const navigate = useNavigate();
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const userDetails = {
+            username: username,
+            email: email,
+            password_digest: password,
+            age: age,
+            gender: gender
+        };
+
+        fetch("http://127.0.0.1:3000/users", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userDetails)
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Registration failed. Please try again later.');
+                }
+                navigate('/signIn')
+                // Registration successful, navigate to home page or display success message
+            })
+            .catch((error) => {
+                setErrorMessage(error.message);
+            });
+    }
+
+
+
+
 
 
     return (
         <div
             class="flex items-center justify-center min-h-screen">
+            {errorMessage && <div>{errorMessage}</div>}
 
-            <form class="outline outline-offset-2 outline-pink-500 w-1/4 bg-dark-rose rounded-lg bg-rose-50"> <br />
+            <form onSubmit={handleFormSubmit}
+                class="outline outline-offset-2 outline-pink-500 w-1/4 bg-dark-rose rounded-lg bg-rose-50"> <br />
                 <h1 class="text-center text-2xl text-rose-600">Sign Up Here</h1>
 
                 <h3 className="mt-2 text-center">Username</h3>
@@ -16,15 +60,13 @@ export default function SignUp() {
 
                     <input
                         type="text"
+                        value={username}
+                        onChange={event => setUsername(event.target.value)}
                         class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         id="exampleInputUsername"
+                        required
                     />
-
-                    <label
-                        for="exampleInputUsername"
-                        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                    >Username
-                    </label>
+                  
 
                 </div>
 
@@ -33,53 +75,55 @@ export default function SignUp() {
 
                     <input
                         type="email"
+                        value={email}
+                        onChange={event => setEmail(event.target.value)}
                         class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         id="exampleInputEmail2"
+                        required
                     />
 
-                    <label
-                        for="exampleInputPassword2"
-                        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                    >Email
-                    </label>
+                  
 
                 </div>
                 <h4 className="mt-2 text-center">Password</h4>  <br />
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <input
                         type="password"
+                        value={password}
+                        onChange={event => setPassword(event.target.value)}
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         id="exampleInputPassword2"
-                        placeholder="Email"
+                        required
                     />
-                    <label
-                        for="exampleInputPassword2"
-                        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                    >Password</label>
+                 
                 </div>
 
                 <h4 className="mt-2 text-center">Age</h4>  <br />
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <input
+                        onChange={event => setAge(event.target.value)}
+                        value={age}
                         type="number"
                         min="0"
                         max="100"
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         id="exampleInputPassword2"
-                        placeholder="Email"
+                        required
                     />
-                    <label
-                        for="age"
-                        class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
-                    >Age</label>
+                   
                 </div>
 
 
                 <h4 className="mt-2 text-center">Gender</h4>  <br />
                 <div class="relative mb-7" data-te-input-wrapper-init>
-                    <select id="gender" name="gender" >
-                        <option  value="male">Male</option>
+                    <select
+                        value={gender}
+                        onChange={event => setGender(event.target.value)}
+                        id="gender" name="gender" >
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
                         <option value="female">Female</option>
+                        
                     </select>
                 </div>
 
