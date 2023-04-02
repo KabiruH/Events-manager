@@ -3,7 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.4"
 
-gem 'active_model_serializers'
+gem 'bcrypt', '~> 3.1', '>= 3.1.18'
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
@@ -48,3 +49,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'faker', '~> 3.1', '>= 3.1.1'
+
+gem "active_model_serializers", "~> 0.10.12"

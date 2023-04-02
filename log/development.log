@@ -1,0 +1,1032 @@
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEvents (20230328091231)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image" varchar, "description" varchar, "location" varchar, "age_limit" varchar, "capacity" integer, "date" datetime(6), "time" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328091231"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAttendees (20230328114543)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "attendees" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "user_id" integer, "event_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328114543"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSponsors (20230328114625)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "sponsors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "organisation" varchar, "category" varchar, "industry" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328114625"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSpeakers (20230328114658)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "speakers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "event_id" integer, "organisation" varchar, "job_title" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328114658"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20230328115032)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "age" integer, "gender" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230328115032"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-29 11:41:37.278410"], ["updated_at", "2023-03-29 11:41:37.278410"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mayme.bradtke@mills-boehm.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 67], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "vancevance"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "vancevance"], ["email", "mayme.bradtke@mills-boehm.com"], ["password_digest", "[FILTERED]"], ["age", 67], ["gender", "Genderqueer"], ["created_at", "2023-03-29 11:48:17.726834"], ["updated_at", "2023-03-29 11:48:17.726834"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "laurence@bradtke.org"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 36], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "odellodell"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "odellodell"], ["email", "laurence@bradtke.org"], ["password_digest", "[FILTERED]"], ["age", 36], ["gender", "Bigender"], ["created_at", "2023-03-29 11:48:17.742788"], ["updated_at", "2023-03-29 11:48:17.742788"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "breanne@vandervort-feest.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 37], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "gaylene"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "gaylene"], ["email", "breanne@vandervort-feest.biz"], ["password_digest", "[FILTERED]"], ["age", 37], ["gender", "Non-binary"], ["created_at", "2023-03-29 11:48:17.755037"], ["updated_at", "2023-03-29 11:48:17.755037"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "arlette@hodkiewicz.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 62], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "harryharry"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "harryharry"], ["email", "arlette@hodkiewicz.com"], ["password_digest", "[FILTERED]"], ["age", 62], ["gender", "Agender"], ["created_at", "2023-03-29 11:48:17.769300"], ["updated_at", "2023-03-29 11:48:17.769300"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tanna@streich.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 40], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "lashandra"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "lashandra"], ["email", "tanna@streich.biz"], ["password_digest", "[FILTERED]"], ["age", 40], ["gender", "Non-binary"], ["created_at", "2023-03-29 11:48:17.781374"], ["updated_at", "2023-03-29 11:48:17.781374"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "micheal_bogan@lowe.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 42], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "edward"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "edward"], ["email", "micheal_bogan@lowe.net"], ["password_digest", "[FILTERED]"], ["age", 42], ["gender", "Male"], ["created_at", "2023-03-29 11:48:30.995723"], ["updated_at", "2023-03-29 11:48:30.995723"]]
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rolf@hauck-zieme.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 32], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "maryann"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "maryann"], ["email", "rolf@hauck-zieme.info"], ["password_digest", "[FILTERED]"], ["age", 32], ["gender", "Polygender"], ["created_at", "2023-03-29 11:48:31.016848"], ["updated_at", "2023-03-29 11:48:31.016848"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rolf.hammes@rath-larkin.co"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 37], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "roosevelt"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hope.stark@waelchi.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 53], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "fritzfritz"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "fritzfritz"], ["email", "hope.stark@waelchi.info"], ["password_digest", "[FILTERED]"], ["age", 53], ["gender", "Genderqueer"], ["created_at", "2023-03-29 11:48:31.034947"], ["updated_at", "2023-03-29 11:48:31.034947"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kristofer_bashirian@hirthe.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 17], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "raymon"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "raymon"], ["email", "kristofer_bashirian@hirthe.net"], ["password_digest", "[FILTERED]"], ["age", 17], ["gender", "Polygender"], ["created_at", "2023-03-29 11:48:31.047183"], ["updated_at", "2023-03-29 11:48:31.047183"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jesusita.ebert@feil.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 58], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "reyesreyes"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "reyesreyes"], ["email", "jesusita.ebert@feil.io"], ["password_digest", "[FILTERED]"], ["age", 58], ["gender", "Male"], ["created_at", "2023-03-29 11:51:21.441363"], ["updated_at", "2023-03-29 11:51:21.441363"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lance@bahringer.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 69], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mohamed"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "mohamed"], ["email", "lance@bahringer.com"], ["password_digest", "[FILTERED]"], ["age", 69], ["gender", "Female"], ["created_at", "2023-03-29 11:51:21.462260"], ["updated_at", "2023-03-29 11:51:21.462260"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "clay@prosacco-flatley.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 63], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "masonmason"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "masonmason"], ["email", "clay@prosacco-flatley.net"], ["password_digest", "[FILTERED]"], ["age", 63], ["gender", "Female"], ["created_at", "2023-03-29 11:51:21.479835"], ["updated_at", "2023-03-29 11:51:21.479835"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bo@schinner-boyer.co"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 68], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "nickynicky"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "nickynicky"], ["email", "bo@schinner-boyer.co"], ["password_digest", "[FILTERED]"], ["age", 68], ["gender", "Bigender"], ["created_at", "2023-03-29 11:51:21.495215"], ["updated_at", "2023-03-29 11:51:21.495215"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "arlean@ledner-kris.name"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 48], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ebonyebony"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ebonyebony"], ["email", "arlean@ledner-kris.name"], ["password_digest", "[FILTERED]"], ["age", 48], ["gender", "Genderqueer"], ["created_at", "2023-03-29 11:51:21.512195"], ["updated_at", "2023-03-29 11:51:21.512195"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "johnathon@wolf.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 34], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "louis_veum"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "louis_veum"], ["email", "johnathon@wolf.com"], ["password_digest", "[FILTERED]"], ["age", 34], ["gender", "Female"], ["created_at", "2023-03-29 11:55:35.658693"], ["updated_at", "2023-03-29 11:55:35.658693"]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "domitila@greenfelder-keeling.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 61], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "lucila"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "lucila"], ["email", "domitila@greenfelder-keeling.info"], ["password_digest", "[FILTERED]"], ["age", 61], ["gender", "Bigender"], ["created_at", "2023-03-29 11:55:35.674736"], ["updated_at", "2023-03-29 11:55:35.674736"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "darlene.witting@champlin.co"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 42], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rileyriley"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ahmad.hane@gutkowski.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 65], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mitchel"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "mitchel"], ["email", "ahmad.hane@gutkowski.info"], ["password_digest", "[FILTERED]"], ["age", 65], ["gender", "Genderqueer"], ["created_at", "2023-03-29 11:55:35.693402"], ["updated_at", "2023-03-29 11:55:35.693402"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lonna@walker.name"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 21], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "georgianna"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "georgianna"], ["email", "lonna@walker.name"], ["password_digest", "[FILTERED]"], ["age", 21], ["gender", "Genderqueer"], ["created_at", "2023-03-29 11:55:35.706228"], ["updated_at", "2023-03-29 11:55:35.706228"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tyrone_carter@adams.co"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 68], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "randell"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "aurore_hintz@jaskolski.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 48], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ernieernie"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "robby.stehr@trantow-schaefer.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 27], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "roland"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "roland"], ["email", "robby.stehr@trantow-schaefer.com"], ["password_digest", "[FILTERED]"], ["age", 27], ["gender", "Non-binary"], ["created_at", "2023-03-29 11:56:17.582584"], ["updated_at", "2023-03-29 11:56:17.582584"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "markus.schmidt@lueilwitz.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 49], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "yuonne"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "yuonne"], ["email", "markus.schmidt@lueilwitz.io"], ["password_digest", "[FILTERED]"], ["age", 49], ["gender", "Agender"], ["created_at", "2023-03-29 11:56:17.603219"], ["updated_at", "2023-03-29 11:56:17.603219"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "virgilio@reilly.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 44], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "normand"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "normand"], ["email", "virgilio@reilly.net"], ["password_digest", "[FILTERED]"], ["age", 44], ["gender", "Genderfluid"], ["created_at", "2023-03-29 11:56:17.615786"], ["updated_at", "2023-03-29 11:56:17.615786"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Music Festival"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a day of music, food, and fun!"], ["location", "Central Park, New York City"], ["age_limit", "18+"], ["capacity", 5000], ["date", "2023-05-20 00:00:00"], ["time", "2023-05-20 12:00:00"], ["created_at", "2023-03-29 11:56:17.643443"], ["updated_at", "2023-03-29 11:56:17.643443"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Charity Walk"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a charity walk to raise funds for cancer research."], ["location", "Golden Gate Park, San Francisco"], ["age_limit", "All ages"], ["capacity", 1000], ["date", "2023-06-10 00:00:00"], ["time", "2023-06-10 09:00:00"], ["created_at", "2023-03-29 11:56:17.652360"], ["updated_at", "2023-03-29 11:56:17.652360"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Tech Conference"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a conference on the latest trends in technology."], ["location", "Moscone Center, San Francisco"], ["age_limit", "18+"], ["capacity", 500], ["date", "2023-07-15 00:00:00"], ["time", "2023-07-15 10:00:00"], ["created_at", "2023-03-29 11:56:17.660865"], ["updated_at", "2023-03-29 11:56:17.660865"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.5ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Google"], ["organisation", "Google Inc."], ["category", "Technology"], ["industry", "Software"], ["created_at", "2023-03-29 11:56:17.679943"], ["updated_at", "2023-03-29 11:56:17.679943"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.8ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nike"], ["organisation", "Nike Inc."], ["category", "Fashion"], ["industry", "Sportswear"], ["created_at", "2023-03-29 11:56:17.689330"], ["updated_at", "2023-03-29 11:56:17.689330"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.5ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coca-Cola"], ["organisation", "The Coca-Cola Company"], ["category", "Food and Beverage"], ["industry", "Beverages"], ["created_at", "2023-03-29 11:56:17.704048"], ["updated_at", "2023-03-29 11:56:17.704048"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "harlan@mclaughlin.org"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 52], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "beaulah"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "beaulah"], ["email", "harlan@mclaughlin.org"], ["password_digest", "[FILTERED]"], ["age", 52], ["gender", "Genderfluid"], ["created_at", "2023-03-29 11:56:54.951248"], ["updated_at", "2023-03-29 11:56:54.951248"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "danuta.johns@brakus-purdy.name"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 20], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "teddyteddy"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "teddyteddy"], ["email", "danuta.johns@brakus-purdy.name"], ["password_digest", "[FILTERED]"], ["age", 20], ["gender", "Genderqueer"], ["created_at", "2023-03-29 11:56:54.965112"], ["updated_at", "2023-03-29 11:56:54.965112"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lael.volkman@doyle.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 35], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "palmer"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "palmer"], ["email", "lael.volkman@doyle.biz"], ["password_digest", "[FILTERED]"], ["age", 35], ["gender", "Genderqueer"], ["created_at", "2023-03-29 11:56:54.977537"], ["updated_at", "2023-03-29 11:56:54.977537"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "parthenia_huel@tromp.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 46], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "rolland"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "rolland"], ["email", "parthenia_huel@tromp.info"], ["password_digest", "[FILTERED]"], ["age", 46], ["gender", "Bigender"], ["created_at", "2023-03-29 11:56:54.990056"], ["updated_at", "2023-03-29 11:56:54.990056"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "donn@becker.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 39], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "kay.walker"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "kay.walker"], ["email", "donn@becker.com"], ["password_digest", "[FILTERED]"], ["age", 39], ["gender", "Female"], ["created_at", "2023-03-29 11:56:55.008355"], ["updated_at", "2023-03-29 11:56:55.008355"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Music Festival"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a day of music, food, and fun!"], ["location", "Central Park, New York City"], ["age_limit", "18+"], ["capacity", 5000], ["date", "2023-05-20 00:00:00"], ["time", "2023-05-20 12:00:00"], ["created_at", "2023-03-29 11:56:55.032754"], ["updated_at", "2023-03-29 11:56:55.032754"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Charity Walk"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a charity walk to raise funds for cancer research."], ["location", "Golden Gate Park, San Francisco"], ["age_limit", "All ages"], ["capacity", 1000], ["date", "2023-06-10 00:00:00"], ["time", "2023-06-10 09:00:00"], ["created_at", "2023-03-29 11:56:55.041021"], ["updated_at", "2023-03-29 11:56:55.041021"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Tech Conference"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a conference on the latest trends in technology."], ["location", "Moscone Center, San Francisco"], ["age_limit", "18+"], ["capacity", 500], ["date", "2023-07-15 00:00:00"], ["time", "2023-07-15 10:00:00"], ["created_at", "2023-03-29 11:56:55.048969"], ["updated_at", "2023-03-29 11:56:55.048969"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Google"], ["organisation", "Google Inc."], ["category", "Technology"], ["industry", "Software"], ["created_at", "2023-03-29 11:56:55.069815"], ["updated_at", "2023-03-29 11:56:55.069815"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nike"], ["organisation", "Nike Inc."], ["category", "Fashion"], ["industry", "Sportswear"], ["created_at", "2023-03-29 11:56:55.079464"], ["updated_at", "2023-03-29 11:56:55.079464"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.9ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coca-Cola"], ["organisation", "The Coca-Cola Company"], ["category", "Food and Beverage"], ["industry", "Beverages"], ["created_at", "2023-03-29 11:56:55.088622"], ["updated_at", "2023-03-29 11:56:55.088622"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jorge@bechtelar.name"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 46], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "whitney"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chin@harvey-ortiz.co"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 66], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "cleveland"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "cleveland"], ["email", "chin@harvey-ortiz.co"], ["password_digest", "[FILTERED]"], ["age", 66], ["gender", "Female"], ["created_at", "2023-03-29 12:03:25.609257"], ["updated_at", "2023-03-29 12:03:25.609257"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tyree.schimmel@hintz-simonis.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 58], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ethylethyl"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "zoila@wunsch.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 25], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "noelia"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "noelia"], ["email", "zoila@wunsch.biz"], ["password_digest", "[FILTERED]"], ["age", 25], ["gender", "Female"], ["created_at", "2023-03-29 12:03:25.628073"], ["updated_at", "2023-03-29 12:03:25.628073"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ethan@kuhn-lakin.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 62], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ronnie"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Music Festival"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a day of music, food, and fun!"], ["location", "Central Park, New York City"], ["age_limit", "18+"], ["capacity", 5000], ["date", "2023-05-20 00:00:00"], ["time", "2023-05-20 12:00:00"], ["created_at", "2023-03-29 12:03:25.661559"], ["updated_at", "2023-03-29 12:03:25.661559"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Charity Walk"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a charity walk to raise funds for cancer research."], ["location", "Golden Gate Park, San Francisco"], ["age_limit", "All ages"], ["capacity", 1000], ["date", "2023-06-10 00:00:00"], ["time", "2023-06-10 09:00:00"], ["created_at", "2023-03-29 12:03:25.670041"], ["updated_at", "2023-03-29 12:03:25.670041"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.4ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Tech Conference"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a conference on the latest trends in technology."], ["location", "Moscone Center, San Francisco"], ["age_limit", "18+"], ["capacity", 500], ["date", "2023-07-15 00:00:00"], ["time", "2023-07-15 10:00:00"], ["created_at", "2023-03-29 12:03:25.678597"], ["updated_at", "2023-03-29 12:03:25.678597"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Google"], ["organisation", "Google Inc."], ["category", "Technology"], ["industry", "Software"], ["created_at", "2023-03-29 12:03:25.708037"], ["updated_at", "2023-03-29 12:03:25.708037"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nike"], ["organisation", "Nike Inc."], ["category", "Fashion"], ["industry", "Sportswear"], ["created_at", "2023-03-29 12:03:25.715821"], ["updated_at", "2023-03-29 12:03:25.715821"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coca-Cola"], ["organisation", "The Coca-Cola Company"], ["category", "Food and Beverage"], ["industry", "Beverages"], ["created_at", "2023-03-29 12:03:25.723666"], ["updated_at", "2023-03-29 12:03:25.723666"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hershel.gutkowski@goodwin-labadie.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 21], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "terrence"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ruben_marks@mills.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 13], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "dominic"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "dominic"], ["email", "ruben_marks@mills.io"], ["password_digest", "[FILTERED]"], ["age", 13], ["gender", "Male"], ["created_at", "2023-03-29 12:04:29.345387"], ["updated_at", "2023-03-29 12:04:29.345387"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "diane_rogahn@russel.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 52], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mitchel"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gabriel@ohara-barrows.name"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 33], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "nadene"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "nadene"], ["email", "gabriel@ohara-barrows.name"], ["password_digest", "[FILTERED]"], ["age", 33], ["gender", "Male"], ["created_at", "2023-03-29 12:04:29.367760"], ["updated_at", "2023-03-29 12:04:29.367760"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nelle_lynch@boehm.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 38], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ramonita"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "ramonita"], ["email", "nelle_lynch@boehm.info"], ["password_digest", "[FILTERED]"], ["age", 38], ["gender", "Agender"], ["created_at", "2023-03-29 12:04:29.380380"], ["updated_at", "2023-03-29 12:04:29.380380"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Music Festival"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a day of music, food, and fun!"], ["location", "Central Park, New York City"], ["age_limit", "18+"], ["capacity", 5000], ["date", "2023-05-20 00:00:00"], ["time", "2023-05-20 12:00:00"], ["created_at", "2023-03-29 12:04:29.407899"], ["updated_at", "2023-03-29 12:04:29.407899"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Charity Walk"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a charity walk to raise funds for cancer research."], ["location", "Golden Gate Park, San Francisco"], ["age_limit", "All ages"], ["capacity", 1000], ["date", "2023-06-10 00:00:00"], ["time", "2023-06-10 09:00:00"], ["created_at", "2023-03-29 12:04:29.416700"], ["updated_at", "2023-03-29 12:04:29.416700"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Tech Conference"], ["image", "https://example.com/image.jpg"], ["description", "Join us for a conference on the latest trends in technology."], ["location", "Moscone Center, San Francisco"], ["age_limit", "18+"], ["capacity", 500], ["date", "2023-07-15 00:00:00"], ["time", "2023-07-15 10:00:00"], ["created_at", "2023-03-29 12:04:29.424950"], ["updated_at", "2023-03-29 12:04:29.424950"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Google"], ["organisation", "Google Inc."], ["category", "Technology"], ["industry", "Software"], ["created_at", "2023-03-29 12:04:29.447165"], ["updated_at", "2023-03-29 12:04:29.447165"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nike"], ["organisation", "Nike Inc."], ["category", "Fashion"], ["industry", "Sportswear"], ["created_at", "2023-03-29 12:04:29.456108"], ["updated_at", "2023-03-29 12:04:29.456108"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coca-Cola"], ["organisation", "The Coca-Cola Company"], ["category", "Food and Beverage"], ["industry", "Beverages"], ["created_at", "2023-03-29 12:04:29.464156"], ["updated_at", "2023-03-29 12:04:29.464156"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpeaker Create (0.3ms)[0m  [1m[32mINSERT INTO "speakers" ("name", "email", "event_id", "organisation", "job_title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "John Doe"], ["email", "johndoe@example.com"], ["event_id", 0], ["organisation", "ABC Company"], ["job_title", "CEO"], ["created_at", "2023-03-29 12:04:29.484812"], ["updated_at", "2023-03-29 12:04:29.484812"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpeaker Create (0.3ms)[0m  [1m[32mINSERT INTO "speakers" ("name", "email", "event_id", "organisation", "job_title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jane Smith"], ["email", "janesmith@example.com"], ["event_id", 0], ["organisation", "XYZ Corporation"], ["job_title", "VP of Marketing"], ["created_at", "2023-03-29 12:04:29.492312"], ["updated_at", "2023-03-29 12:04:29.492312"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpeaker Create (0.7ms)[0m  [1m[32mINSERT INTO "speakers" ("name", "email", "event_id", "organisation", "job_title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bob Johnson"], ["email", "bobjohnson@example.com"], ["event_id", 0], ["organisation", "123 Enterprises"], ["job_title", "CTO"], ["created_at", "2023-03-29 12:04:29.500703"], ["updated_at", "2023-03-29 12:04:29.500703"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."event_id" = ? LIMIT ?[0m  [["event_id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."event_id" = ? LIMIT ?[0m  [["event_id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."event_id" = ? LIMIT ?[0m  [["event_id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-03-29 15:04:55 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.5ms | Allocations: 766)
+Completed 200 OK in 43ms (Views: 25.5ms | ActiveRecord: 0.0ms | Allocations: 6580)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:05:04 +0300
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/controllers/events_controller.rb:77: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/events_controller.rb:77: syntax error, unexpected `end', expecting end-of-input
+app/controllers/events_controller.rb:77: syntax error, unexpected `end', expecting end-of-input
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-29 15:05:05 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:05:57 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.8ms | Allocations: 629)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:06:34 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.0ms | Allocations: 178)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:06:39 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.8ms | Allocations: 178)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:06:50 +0300
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for SponsorsController):
+  
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:07:20 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 18ms (Allocations: 2352)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:07:21 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 1ms (Allocations: 46)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:07:22 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 1ms (Allocations: 39)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-29 15:07:45 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.85ms)
+Completed 200 OK in 61ms (Views: 53.2ms | ActiveRecord: 2.0ms | Allocations: 27632)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-29 15:08:05 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.8ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.6ms | Allocations: 5070)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:08:57 +0300
+Processing by EventsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 286)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-29 15:10:32 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.48ms)
+Completed 200 OK in 47ms (Views: 44.4ms | ActiveRecord: 1.9ms | Allocations: 5067)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:10:48 +0300
+Processing by EventsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-03-29 15:11:24 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.49ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.4ms | Allocations: 5074)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:11:41 +0300
+Processing by SponsorsController#index as */*
+Completed 204 No Content in 9ms (ActiveRecord: 0.0ms | Allocations: 1356)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:13:31 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SponsorsController#index as */*
+Completed 204 No Content in 81ms (ActiveRecord: 0.0ms | Allocations: 21032)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-29 15:25:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.6ms | Allocations: 660)
+Completed 200 OK in 27ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 5290)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:25:24 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 31ms (ActiveRecord: 0.0ms | Allocations: 2364)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:25:37 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 47)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:25:43 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.66ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms | Allocations: 578)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-29 15:25:43 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-03-29 15:25:49 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.37ms)
+Completed 200 OK in 79ms (Views: 59.4ms | ActiveRecord: 1.7ms | Allocations: 26549)
+
+
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:26:01 +0300
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/controllers/speakers_controller.rb:20: syntax error, unexpected `end'
+          end
+          ^~~
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/controllers/speakers_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/speakers_controller.rb:20: syntax error, unexpected `end'
+app/controllers/speakers_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/speakers_controller.rb:20: syntax error, unexpected `end'
+app/controllers/speakers_controller.rb:34: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for 127.0.0.1 at 2023-03-29 15:26:37 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.5ms | Allocations: 660)
+Completed 200 OK in 16ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 5291)
+
+
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:26:46 +0300
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/controllers/speakers_controller.rb:19: syntax error, unexpected `end'
+          end
+          ^~~
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/controllers/speakers_controller.rb:33: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/speakers_controller.rb:19: syntax error, unexpected `end'
+app/controllers/speakers_controller.rb:33: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/speakers_controller.rb:19: syntax error, unexpected `end'
+app/controllers/speakers_controller.rb:33: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:27:52 +0300
+Processing by SpeakersController#index as HTML
+Completed 404 Not Found in 24ms (ActiveRecord: 2.7ms | Allocations: 5540)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event without an ID):
+  
+app/controllers/speakers_controller.rb:25:in `set_event'
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:29:59 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."event_id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:25:in `set_event'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.5ms | Allocations: 4762)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: events.event_id):
+  
+app/controllers/speakers_controller.rb:25:in `set_event'
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:30:23 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:25:in `set_event'
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.1ms | Allocations: 6723)
+
+
+  
+NameError (undefined local variable or method `event' for #<SpeakersController:0x000000000197a8>
+Did you mean?  event_url):
+  
+app/controllers/speakers_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-03-29 15:32:11 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.49ms)
+Completed 200 OK in 61ms (Views: 55.8ms | ActiveRecord: 1.7ms | Allocations: 26770)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:32:21 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 505)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-03-29 15:32:27 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:32:39 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:25:in `set_event'
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.2ms | Allocations: 4632)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"events"}, missing required keys: [:id]):
+  
+app/controllers/speakers_controller.rb:5:in `index'
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:43:54 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 7ms (Allocations: 1497)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:44:04 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 1ms (Allocations: 40)
+
+
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:44:14 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:25:in `set_event'
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.2ms | Allocations: 6233)
+
+
+  
+NameError (undefined local variable or method `event' for #<SpeakersController:0x00000000023708>
+Did you mean?  event_url):
+  
+app/controllers/speakers_controller.rb:5:in `index'
+Started GET "/speakers" for 127.0.0.1 at 2023-03-29 15:44:18 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (11.9ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:25:in `set_event'
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 11.9ms | Allocations: 2698)
+
+
+  
+NameError (undefined local variable or method `event' for #<SpeakersController:0x00000000023898>
+Did you mean?  event_url):
+  
+app/controllers/speakers_controller.rb:5:in `index'
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:44:23 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 39)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-29 15:44:42 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.3ms | Allocations: 660)
+Completed 200 OK in 23ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 5290)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-29 15:44:53 +0300
+Processing by SponsorsController#index as HTML
+Completed 204 No Content in 10ms (ActiveRecord: 0.0ms | Allocations: 2364)
+
+
+Started GET "/" for ::1 at 2023-03-30 11:08:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.3ms | Allocations: 766)
+Completed 200 OK in 31ms (Views: 13.8ms | ActiveRecord: 0.0ms | Allocations: 6579)
+
+
+Started GET "/" for ::1 at 2023-03-30 11:08:57 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | Allocations: 449)
+Completed 200 OK in 6ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 1143)
+
+
+Started GET "/speakers" for ::1 at 2023-03-30 11:10:15 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:25:in `set_event'
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.8ms | Allocations: 9210)
+
+
+  
+NameError (undefined local variable or method `event' for #<SpeakersController:0x0000000000acd0>
+Did you mean?  event_url):
+  
+app/controllers/speakers_controller.rb:5:in `index'
+Started GET "/speakers" for ::1 at 2023-03-30 11:13:38 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (1.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:33:in `set_event'
+  [1m[36mSpeaker Load (0.3ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers"[0m
+  ↳ app/controllers/speakers_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.51ms)
+Completed 200 OK in 75ms (Views: 54.0ms | ActiveRecord: 4.2ms | Allocations: 26494)
+
+
+Started GET "/sponsors" for ::1 at 2023-03-30 11:15:25 +0300
+Processing by SponsorsController#index as HTML
+  [1m[36mSponsor Load (0.2ms)[0m  [1m[34mSELECT "sponsors".* FROM "sponsors"[0m
+  ↳ app/controllers/sponsors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.45ms)
+Completed 200 OK in 51ms (Views: 40.7ms | ActiveRecord: 2.6ms | Allocations: 18810)
+
+
+Started GET "/attendees" for ::1 at 2023-03-30 11:17:22 +0300
+Processing by AttendeesController#index as HTML
+Completed 404 Not Found in 10ms (ActiveRecord: 1.2ms | Allocations: 3827)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event without an ID):
+  
+app/controllers/attendees_controller.rb:33:in `set_event'
+Started GET "/attendees" for ::1 at 2023-03-30 11:19:41 +0300
+Processing by AttendeesController#index as HTML
+Completed 500 Internal Server Error in 12ms (Allocations: 1976)
+
+
+  
+NoMethodError (undefined method `set_event' for #<AttendeesController:0x0000000001e578>
+Did you mean?  set_request!):
+  
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.4.3) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4.3) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4.3) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4.3) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4.3) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4.3) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:151:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/attendees" for ::1 at 2023-03-30 11:20:09 +0300
+Processing by AttendeesController#index as HTML
+Completed 404 Not Found in 6ms (ActiveRecord: 0.7ms | Allocations: 3813)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event without an ID):
+  
+app/controllers/attendees_controller.rb:33:in `set_event'
+Started GET "/" for ::1 at 2023-03-31 09:27:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.3ms | Allocations: 660)
+Completed 200 OK in 23ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 5290)
+
+
+Started GET "/" for ::1 at 2023-03-31 09:27:18 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | Allocations: 449)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 1143)
+
+
+Started GET "/attendees" for ::1 at 2023-03-31 09:27:23 +0300
+Processing by AttendeesController#index as HTML
+Completed 404 Not Found in 18ms (ActiveRecord: 0.9ms | Allocations: 5429)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event without an ID):
+  
+app/controllers/attendees_controller.rb:33:in `set_event'
+Started GET "/favicon.ico" for ::1 at 2023-03-31 09:27:24 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/attendees" for ::1 at 2023-03-31 09:28:11 +0300
+Processing by AttendeesController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/attendees_controller.rb:33:in `set_event'
+  [1m[36mAttendee Load (0.3ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees"[0m
+  ↳ app/controllers/attendees_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.18ms)
+Completed 200 OK in 54ms (Views: 11.2ms | ActiveRecord: 2.5ms | Allocations: 27634)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-31 10:31:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.8ms | Allocations: 766)
+Completed 200 OK in 57ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 6579)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-03-31 10:31:55 +0300
+Processing by SponsorsController#index as HTML
+  [1m[36mSponsor Load (0.8ms)[0m  [1m[34mSELECT "sponsors".* FROM "sponsors"[0m
+  ↳ app/controllers/sponsors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.38ms)
+Completed 200 OK in 131ms (Views: 102.2ms | ActiveRecord: 5.2ms | Allocations: 23893)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-03-31 10:31:55 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/speakers" for 127.0.0.1 at 2023-03-31 10:32:04 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:33:in `set_event'
+  [1m[36mSpeaker Load (0.6ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers"[0m
+  ↳ app/controllers/speakers_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.24ms)
+Completed 200 OK in 63ms (Views: 32.1ms | ActiveRecord: 2.8ms | Allocations: 23556)
+
+
+Started GET "/attendees" for 127.0.0.1 at 2023-03-31 10:32:18 +0300
+Processing by AttendeesController#index as HTML
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/attendees_controller.rb:33:in `set_event'
+  [1m[36mAttendee Load (0.5ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees"[0m
+  ↳ app/controllers/attendees_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 80ms (Views: 5.8ms | ActiveRecord: 2.4ms | Allocations: 20799)
+
+
+Started GET "/attendees/1" for 127.0.0.1 at 2023-03-31 10:33:09 +0300
+Processing by AttendeesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/attendees_controller.rb:33:in `set_event'
+  [1m[36mAttendee Load (0.7ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/attendees_controller.rb:11:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 404 Not Found in 27ms (Views: 18.9ms | ActiveRecord: 1.4ms | Allocations: 2690)
+
+
+Started GET "/attendees/2" for 127.0.0.1 at 2023-03-31 10:33:14 +0300
+Processing by AttendeesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/attendees_controller.rb:33:in `set_event'
+  [1m[36mAttendee Load (0.2ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees" WHERE "attendees"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/attendees_controller.rb:11:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 404 Not Found in 7ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 1082)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "danilo_ferry@mcclure.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 69], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "toniatonia"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shamika@effertz-watsica.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 47], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "anisaanisa"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "anisaanisa"], ["email", "shamika@effertz-watsica.info"], ["password_digest", "[FILTERED]"], ["age", 47], ["gender", "Agender"], ["created_at", "2023-03-31 07:56:03.856227"], ["updated_at", "2023-03-31 07:56:03.856227"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lucas_mcglynn@parisian-luettgen.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 34], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "skye.wolf"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jacinda@dach.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 45], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "chantel"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "chantel"], ["email", "jacinda@dach.net"], ["password_digest", "[FILTERED]"], ["age", 45], ["gender", "Polygender"], ["created_at", "2023-03-31 07:56:03.878533"], ["updated_at", "2023-03-31 07:56:03.878533"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alia@purdy-mosciski.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."age" = ? LIMIT ?[0m  [["age", 49], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "shella"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Music Festival"], ["image", "https://www.shutterstock.com/image-photo/stage-concert-light-people-watching-rock-673008964"], ["description", "Join us for a day of music, food, and fun!"], ["location", "Central Park, New York City"], ["age_limit", "18+"], ["capacity", 5000], ["date", "2023-05-20 00:00:00"], ["time", "2023-05-20 12:00:00"], ["created_at", "2023-03-31 07:56:03.917365"], ["updated_at", "2023-03-31 07:56:03.917365"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Autism foundation"], ["image", "https://www.shutterstock.com/image-vector/world-autism-awareness-day-holiday-event-598462586"], ["description", "We take a look at how we have come in our knowledge and understanding of Autism"], ["location", "Central Park, New York City"], ["age_limit", "18+"], ["capacity", 5000], ["date", "2023-05-20 00:00:00"], ["time", "2023-05-20 12:00:00"], ["created_at", "2023-03-31 07:56:03.925936"], ["updated_at", "2023-03-31 07:56:03.925936"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Charity Walk"], ["image", "https://www.shutterstock.com/image-photo/friend-runners-taking-selfie-charity-run-2109966056"], ["description", "Join us for a charity walk to raise funds for cancer research."], ["location", "Golden Gate Park, San Francisco"], ["age_limit", "All ages"], ["capacity", 1000], ["date", "2023-06-10 00:00:00"], ["time", "2023-06-10 09:00:00"], ["created_at", "2023-03-31 07:56:03.933532"], ["updated_at", "2023-03-31 07:56:03.933532"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.5ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Fast Festival"], ["image", "https://www.shutterstock.com/image-photo/las-vegas-nvusa-november-2-2018-1241742250"], ["description", "Join the fast family as the new trailer for their new movie Fast X drops."], ["location", "Golden Gate Park, San Francisco"], ["age_limit", "All ages"], ["capacity", 1000], ["date", "2023-06-10 00:00:00"], ["time", "2023-06-10 09:00:00"], ["created_at", "2023-03-31 07:56:03.941103"], ["updated_at", "2023-03-31 07:56:03.941103"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mEvent Create (0.9ms)[0m  [1m[32mINSERT INTO "events" ("title", "image", "description", "location", "age_limit", "capacity", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Tech Conference"], ["image", "https://www.shutterstock.com/image-photo/speaker-giving-talk-on-corporate-business-481869205"], ["description", "Join us for a conference on the latest trends in technology."], ["location", "Moscone Center, San Francisco"], ["age_limit", "18+"], ["capacity", 500], ["date", "2023-07-15 00:00:00"], ["time", "2023-07-15 10:00:00"], ["created_at", "2023-03-31 07:56:03.954841"], ["updated_at", "2023-03-31 07:56:03.954841"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Google"], ["organisation", "Google Inc."], ["category", "Technology"], ["industry", "Software"], ["created_at", "2023-03-31 07:56:03.984632"], ["updated_at", "2023-03-31 07:56:03.984632"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Nike"], ["organisation", "Nike Inc."], ["category", "Fashion"], ["industry", "Sportswear"], ["created_at", "2023-03-31 07:56:03.994492"], ["updated_at", "2023-03-31 07:56:03.994492"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSponsor Create (0.3ms)[0m  [1m[32mINSERT INTO "sponsors" ("title", "organisation", "category", "industry", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Coca-Cola"], ["organisation", "The Coca-Cola Company"], ["category", "Food and Beverage"], ["industry", "Beverages"], ["created_at", "2023-03-31 07:56:04.003172"], ["updated_at", "2023-03-31 07:56:04.003172"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpeaker Create (0.3ms)[0m  [1m[32mINSERT INTO "speakers" ("name", "email", "event_id", "organisation", "job_title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "John Doe"], ["email", "johndoe@example.com"], ["event_id", 0], ["organisation", "ABC Company"], ["job_title", "CEO"], ["created_at", "2023-03-31 07:56:04.024787"], ["updated_at", "2023-03-31 07:56:04.024787"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpeaker Create (0.3ms)[0m  [1m[32mINSERT INTO "speakers" ("name", "email", "event_id", "organisation", "job_title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jane Smith"], ["email", "janesmith@example.com"], ["event_id", 0], ["organisation", "XYZ Corporation"], ["job_title", "VP of Marketing"], ["created_at", "2023-03-31 07:56:04.032711"], ["updated_at", "2023-03-31 07:56:04.032711"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSpeaker Create (0.3ms)[0m  [1m[32mINSERT INTO "speakers" ("name", "email", "event_id", "organisation", "job_title", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bob Johnson"], ["email", "bobjohnson@example.com"], ["event_id", 0], ["organisation", "123 Enterprises"], ["job_title", "CTO"], ["created_at", "2023-03-31 07:56:04.040590"], ["updated_at", "2023-03-31 07:56:04.040590"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."event_id" = ? LIMIT ?[0m  [["event_id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."event_id" = ? LIMIT ?[0m  [["event_id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."event_id" = ? LIMIT ?[0m  [["event_id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
