@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import formatDate from "../utilities/formatdate";
 
 export default function EventItem({ title, location, date, id }) {
   return (
@@ -19,7 +20,7 @@ export default function EventItem({ title, location, date, id }) {
         </div>
         <div className="flex gap-2">
           <p>Date:</p>
-          <p className="font-bold">{date}</p>
+          <p className="font-bold">{formatDate(date)}</p>
         </div>
         <Link to="/EventDetails/1">
           <button class="bg-rose-600 hover:opacity-80 text-white px-4 py-2 rounded-lg">
