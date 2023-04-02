@@ -1604,3 +1604,110 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 75ms (Views: 56.4ms | ActiveRecord: 3.4ms | Allocations: 28411)
 
 
+Started POST "/users" for 127.0.0.1 at 2023-04-02 17:59:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"mark", "email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"25", "gender"=>"male", "user"=>{"username"=>"mark", "email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"25", "gender"=>"male"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f17808f6440>, params: {"username"=>"mark", "email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"25", "gender"=>"male", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"mark", "email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"25", "gender"=>"male"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mark"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at", "event_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "mark"], ["email", "mark@gmail.com"], ["password_digest", "[FILTERED]"], ["age", 25], ["gender", "male"], ["created_at", "2023-04-02 14:59:10.631071"], ["updated_at", "2023-04-02 14:59:10.631071"], ["event_id", nil]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "mark@gmail.com"], ["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "mark"], ["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 201 Created in 97ms (Views: 9.1ms | ActiveRecord: 11.4ms | Allocations: 44388)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-04-02 17:59:21 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `login'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 714)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:68:in `login'
+Started POST "/login" for 127.0.0.1 at 2023-04-02 17:59:24 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `login'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.6ms | Allocations: 542)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:68:in `login'
+Started POST "/login" for 127.0.0.1 at 2023-04-02 17:59:24 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"email"=>"mark@gmail.com", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mark@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `login'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms | Allocations: 542)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:68:in `login'
+Started POST "/users" for 127.0.0.1 at 2023-04-02 18:14:12 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"mutuku", "email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"26", "gender"=>"male", "user"=>{"username"=>"mutuku", "email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"26", "gender"=>"male"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007efc7493d308>, params: {"username"=>"mutuku", "email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"26", "gender"=>"male", "controller"=>"users", "action"=>"create", "user"=>{"username"=>"mutuku", "email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]", "age"=>"26", "gender"=>"male"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mutuku@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mutuku"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "age", "gender", "created_at", "updated_at", "event_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["username", "mutuku"], ["email", "mutuku@gmail.com"], ["password_digest", "[FILTERED]"], ["age", 26], ["gender", "male"], ["created_at", "2023-04-02 15:14:12.610618"], ["updated_at", "2023-04-02 15:14:12.610618"], ["event_id", nil]]
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "mutuku@gmail.com"], ["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "mutuku"], ["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 201 Created in 87ms (Views: 8.8ms | ActiveRecord: 13.9ms | Allocations: 44388)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-04-02 18:14:23 +0300
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mutuku@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `login'
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.5ms | Allocations: 714)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:68:in `login'
+Started POST "/login" for 127.0.0.1 at 2023-04-02 20:10:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]", "user"=>{"email"=>"mutuku@gmail.com", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mutuku@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `login'
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 2.4ms | Allocations: 37886)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/users_controller.rb:68:in `login'
