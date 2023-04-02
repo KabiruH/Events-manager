@@ -1086,3 +1086,18 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 51ms (Views: 33.1ms | ActiveRecord: 2.1ms | Allocations: 23677)
 
 
+Started GET "/" for 127.0.0.1 at 2023-04-02 13:24:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.6ms | Allocations: 660)
+Completed 200 OK in 20ms (Views: 11.8ms | ActiveRecord: 0.0ms | Allocations: 5289)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-04-02 13:50:01 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.04ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 5.9ms | Allocations: 585)
+
+
