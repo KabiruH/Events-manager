@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EventItem from "./eventItem";
 
-export const EventsList = () => {
+const EventsList = () => {
+  const [events, setEvents] = useState([]);
+  // get all events
+  useEffect(() => {
+    fetch("http://127.0.0.1:3000/events")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setEvents(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
   return (
     <div className="w-3/4 m-auto p-4 flex flex-col gap-4">
       <div className="flex gap-2 text-4xl items-center py-5 mx-auto">
@@ -24,12 +37,21 @@ export const EventsList = () => {
       </div>
 
       <div className="flex flex-wrap  gap-4 ">
-        {Array(20)
+        {/* {Array(20)
           .fill(0)
           .map((e) => (
             <EventItem key={Math.random()} />
-          ))}
+          ))} */}
+        {events.map((event) => (
+          <EventItem
+            key={event.id}
+            title={event.title}
+            location={event.location}
+            date={event.date}
+          />
+        ))}
       </div>
     </div>
   );
 };
+export default EventsList;
