@@ -1,20 +1,24 @@
 import React from "react";
-import SignIn from "./components/signIn";
-import SignUp from "./components/signUp";
-import UpdateEvent from "./components/updateEvent";
-import AddEvent from "./components/addEvent";
-import EventItem from "./components/eventItem";
+
+import { BrowserRouter } from "react-router-dom";
+
+
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+
+
 
 function App() {
   return (
-    <div className="App">
-      {/* <SignIn/>
-      <SignUp/>
-      <UpdateEvent/>
-      <AddEvent/> */}
-      <EventItem/>
-     
-    </div>
+    <BrowserRouter>
+        <Navbar/>
+          
+        <Footer/>
+
+        
+    </BrowserRouter>
+
+
   );
 }
 
