@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     # DELETE
     def destroy
         # check whether the task exists
-        user = User.find_by(id:params[:id])
+        user = User.find_by(id: user_params[:id])
        
        #  delete the task
        if user
@@ -62,10 +62,10 @@ class UsersController < ApplicationController
     # AUTHENTICATE A USER
     def login
         # get the user by email
-        user = User.find_by(email: params[:email])
+        user = User.find_by(email: user_params[:email])
 
         # validate whether the password is true
-        if user && user.authenticate(params[:password])
+        if user && user.authenticate(user_params[:password])
             token = encode_token({id: user.id})
             render json: { user: user, token: token}, status: :ok
 
@@ -82,6 +82,6 @@ class UsersController < ApplicationController
     # private
 
     def user_params
-        params.permit(:username, :email, :password_digest, :gender, :age)
+        params.permit(:username, :email, :password, :gender, :age)
     end
 end
