@@ -118,6 +118,9 @@ function EventDetails() {
             <p>Capacity:</p>
             <p className="font-bold">500</p>
           </div>
+          <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
+            <i className="fa-solid fa-ticket mr-2"></i>Get Ticket
+          </button>
         </div>
       </div>
     </div>
