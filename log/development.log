@@ -1030,3 +1030,59 @@ Completed 404 Not Found in 7ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations
   [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
   [1m[36mAttendee Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "attendees" WHERE "attendees"."event_id" = ? LIMIT ?[0m  [["event_id", 0], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2023-04-02 10:07:43 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.5ms | Allocations: 660)
+Completed 200 OK in 30ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 5289)
+
+
+Started GET "/peakers" for 127.0.0.1 at 2023-04-02 10:07:52 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/peakers"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2023-04-02 10:07:52 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/speakers" for 127.0.0.1 at 2023-04-02 10:07:58 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:33:in `set_event'
+  [1m[36mSpeaker Load (0.5ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers"[0m
+  ↳ app/controllers/speakers_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.42ms)
+Completed 200 OK in 130ms (Views: 64.4ms | ActiveRecord: 5.1ms | Allocations: 27686)
+
+
+Started GET "/sponsors" for 127.0.0.1 at 2023-04-02 10:08:26 +0300
+Processing by SponsorsController#index as HTML
+  [1m[36mSponsor Load (0.4ms)[0m  [1m[34mSELECT "sponsors".* FROM "sponsors"[0m
+  ↳ app/controllers/sponsors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.74ms)
+Completed 200 OK in 54ms (Views: 46.2ms | ActiveRecord: 2.1ms | Allocations: 18886)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-04-02 10:08:35 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 13ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 505)
+
+
+Started GET "/events" for 127.0.0.1 at 2023-04-02 10:08:36 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 10ms (Views: 7.5ms | ActiveRecord: 0.0ms | Allocations: 178)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 10:08:47 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.39ms)
+Completed 200 OK in 51ms (Views: 33.1ms | ActiveRecord: 2.1ms | Allocations: 23677)
+
+
