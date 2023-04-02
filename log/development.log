@@ -914,3 +914,693 @@ Migrating to AddeventIdToUsers (20230402104125)
   [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-04-02 16:38:26 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 2 pending migrations:
+
+20230402064349_addimage_to_speakers.rb
+20230402104125_addevent_id_to_users.rb
+
+
+):
+  
+activerecord (7.0.4.3) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4.3) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4.3) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4.3) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4.3) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddimageToSpeakers (20230402064349)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "speakers" ADD "image" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230402064349"]]
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddeventIdToUsers (20230402104125)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "users" ADD "event_id" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230402104125"]]
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-04-02 16:39:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.3ms | Allocations: 660)
+Completed 200 OK in 17ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 5289)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:39:37 +0300
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:39:38 +0300
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (7.0.4.3) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4.3) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4.3) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4.3) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.6.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.6.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.6.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4.3) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4.3) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4.3) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4.3) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4.3) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.6.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.6.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4.3) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (2.0.1) lib/rack/cors.rb:102:in `call'
+railties (7.0.4.3) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:40:22 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 232)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:87:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:40:22 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 185)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:87:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:41:23 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 212)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:87:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:44:04 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 192)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:44:05 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 184)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:44:06 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:44:06 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:44:07 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:44:07 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 7ms (Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/" for 127.0.0.1 at 2023-04-02 16:45:02 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.8ms | Allocations: 660)
+Completed 200 OK in 18ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 5289)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:45:13 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 216)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:45:13 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:45:39 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 193)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:45:41 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/speakers" for 127.0.0.1 at 2023-04-02 16:48:16 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:33:in `set_event'
+  [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers"[0m
+  ↳ app/controllers/speakers_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.64ms)
+Completed 200 OK in 70ms (Views: 36.3ms | ActiveRecord: 3.2ms | Allocations: 28304)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:48:24 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:48:25 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:49:03 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 191)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :username, presence: true, uni...
+              ^
+/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:10: Can't assign to true
+...dates :username, presence: true, uniqueness: true
+...                           ^~~~
+):
+  
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/models/user.rb:10: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:10: Can't assign to true
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/" for 127.0.0.1 at 2023-04-02 16:51:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.9ms | Allocations: 660)
+Completed 200 OK in 16ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 5289)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:51:37 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 216)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:51:37 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:52:06 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 191)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: ({ with: URI::...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:52:10 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: ({ with: URI::...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:52:11 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 5ms (Allocations: 180)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: ({ with: URI::...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:52:29 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (Allocations: 193)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:52:51 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms (Allocations: 189)
+
+
+  
+SyntaxError (/home/student/Development/code/Mod4/phase-4-project/Events-manager/app/models/user.rb:15: syntax error, unexpected `end'):
+  
+app/models/user.rb:15: syntax error, unexpected `end'
+app/models/user.rb:15: syntax error, unexpected `end'
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:53:28 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.24ms)
+Completed 200 OK in 95ms (Views: 79.0ms | ActiveRecord: 4.6ms | Allocations: 28299)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:27 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.54ms)
+Completed 200 OK in 50ms (Views: 32.8ms | ActiveRecord: 3.1ms | Allocations: 11021)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:28 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (20.63ms)
+Completed 200 OK in 50ms (Views: 42.4ms | ActiveRecord: 6.8ms | Allocations: 5350)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:29 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.84ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.5ms | Allocations: 5335)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:30 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.35ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.9ms | Allocations: 5336)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:31 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.67ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.9ms | Allocations: 5348)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:31 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.93ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.6ms | Allocations: 5335)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:32 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.31ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.6ms | Allocations: 5335)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:32 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.69ms)
+Completed 200 OK in 32ms (Views: 29.3ms | ActiveRecord: 0.9ms | Allocations: 5335)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:59 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.09ms)
+Completed 200 OK in 45ms (Views: 31.0ms | ActiveRecord: 3.2ms | Allocations: 11146)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:57:59 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.25ms)
+Completed 200 OK in 43ms (Views: 32.9ms | ActiveRecord: 8.8ms | Allocations: 5336)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:58:00 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.62ms)
+Completed 200 OK in 57ms (Views: 53.5ms | ActiveRecord: 2.0ms | Allocations: 5335)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 16:58:01 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.41ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.8ms | Allocations: 5335)
+
+
+Started GET "/" for 127.0.0.1 at 2023-04-02 17:20:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.8ms | Allocations: 660)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 5289)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-04-02 17:20:57 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.32ms)
+Completed 200 OK in 75ms (Views: 56.4ms | ActiveRecord: 3.4ms | Allocations: 28411)
+
+
