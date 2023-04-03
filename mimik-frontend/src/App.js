@@ -30,6 +30,7 @@ function App() {
         <Route path="/EventsHome" element={<EventsHome />}></Route>
         <Route path="/reset" element={<ResetPassword />}></Route>
         <Route path="/updateEvent" element={<UpdateEvent />}></Route>
+        <Route path="/EventsList" element={<EventsList />}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>

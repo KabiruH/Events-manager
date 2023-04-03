@@ -5,7 +5,7 @@ const EventsList = () => {
   const [events, setEvents] = useState([]);
   // get all events
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/events")
+    fetch("http://localhost:3000/events")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
