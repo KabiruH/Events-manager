@@ -1,24 +1,43 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Project Description
+This project is a simple Rails REST API that fetches events and users.
 
-Things you may want to cover:
+The API allows users to mevents. The application has five models:Attendee ,event, speaker,sponsor,user each representing information and relations between ech other.
 
-* Ruby version
 
-* System dependencies
+The application provides several RESTful routes that allow users to view, create, update, and delete heroes and powers.
 
-* Configuration
+## Features
+Users can view a list of all events
+GET /events
 
-* Database creation
+Users can view a list of all sponsors.
+GET /sponsors
 
-* Database initialization
+Users can view a list of all speakers.
+GET /speakers
 
-* How to run the test suite
+Users can view details of a specific event
+GET /event/:id
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Users can create a new event.
+POST /event
 
-* ...
+Users can update an event.
+PATCH /event
+
+## Technology Used
+Ruby on Rails
+
+## Setup Instructions
+To run this application on your local machine, you need to have Ruby on Rails . Follow these steps:
+
+Open your terminal.
+Clone the repository
+Bundle install
+Run rails server using the command: rails s
+Use Postman to access the endpoints.
+
+
+
