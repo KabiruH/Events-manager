@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if (!user) {
-    navigate("/");
+    navigate("/signIn");
     return null;
   }
 

@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EventItem from "./eventItem";
-
+import { Link } from "react-router-dom";
 function EventsHome() {
+  const [events, setEvents] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/events")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setEvents(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
   return (
     <div className="w-full bg-gray-100 p-4 flex flex-col gap-4 items-center">
       <div className="flex gap-2 text-4xl items-center py-5">
@@ -13,16 +25,27 @@ function EventsHome() {
         </h1>
       </div>
       <div className="flex w-3/5 justify-evenly flex-wrap items-center m-auto gap-4">
-        {Array(6)
+        {/* {Array(6)
           .fill(0)
           .map((e) => (
             <EventItem key={Math.random()} />
-          ))}
+          ))} */}
+        {events.slice(0, 6).map((event) => (
+          <EventItem
+            key={event.id}
+            title={event.title}
+            location={event.location}
+            date={event.date}
+            id={event.id}
+          />
+        ))}
       </div>
-      <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
-        <i className="fa-solid fa-calendar-days mr-2"></i>See all Events
-        <i className="fa-solid fa-arrow-right ml-1"></i>
-      </button>
+      <Link to="/events">
+        <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
+          <i className="fa-solid fa-calendar-days mr-2"></i>See all Events
+          <i className="fa-solid fa-arrow-right ml-1"></i>
+        </button>
+      </Link>
     </div>
   );
 }
