@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AddEvent() {
+
+    const navigate = useNavigate();
 
     const [message, setMessage] = useState("");
     const [event, setEvent] = useState({
@@ -17,7 +20,7 @@ export default function AddEvent() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://127.0.0.1:3000/events", {
+            const response = await fetch("http://localhost:3000/events", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -34,8 +37,10 @@ export default function AddEvent() {
                     location: "",
                     age_limit: "",
                     time: "",
-                });
-            } else {
+                })
+                navigate("./EventsHome")
+             }  
+            else {
                 setMessage("Failed to add event. Please try again later.");
             }
         } catch (error) {

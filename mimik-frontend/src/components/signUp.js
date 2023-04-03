@@ -17,7 +17,7 @@ export default function SignUp() {
         const userDetails = {
             username: username,
             email: email,
-            password_digest: password,
+            password: password,
             age: age,
             gender: gender
         };
@@ -49,11 +49,13 @@ export default function SignUp() {
     return (
         <div
             class="flex items-center justify-center min-h-screen">
-            {errorMessage && <div>{errorMessage}</div>}
+            
 
             <form onSubmit={handleFormSubmit}
                 class="outline outline-offset-2 outline-pink-500 w-1/4 bg-dark-rose rounded-lg bg-rose-50"> <br />
                 <h1 class="text-center text-2xl text-rose-600">Sign Up Here</h1>
+
+                {errorMessage && <div>{errorMessage}</div>}
 
                 <h3 className="mt-2 text-center">Username</h3>
                 <br />  <div class="relative mb-6">
@@ -63,7 +65,7 @@ export default function SignUp() {
                         value={username}
                         onChange={event => setUsername(event.target.value)}
                         class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                        id="exampleInputUsername"
+                        id="username"
                         required
                     />
                   
@@ -78,7 +80,7 @@ export default function SignUp() {
                         value={email}
                         onChange={event => setEmail(event.target.value)}
                         class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                        id="exampleInputEmail2"
+                        id="emali"
                         required
                     />
 
@@ -92,7 +94,7 @@ export default function SignUp() {
                         value={password}
                         onChange={event => setPassword(event.target.value)}
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                        id="exampleInputPassword2"
+                        id="pass"
                         required
                     />
                  
@@ -107,7 +109,7 @@ export default function SignUp() {
                         min="0"
                         max="100"
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                        id="exampleInputPassword2"
+                        id="age"
                         required
                     />
                    
@@ -119,7 +121,8 @@ export default function SignUp() {
                     <select
                         value={gender}
                         onChange={event => setGender(event.target.value)}
-                        id="gender" name="gender" >
+                        id="gender" 
+                        name="gender" >
                         <option value="">Select gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -133,7 +136,7 @@ export default function SignUp() {
                     class="bg-rose-600 items-center text-center rounded px-6 pt-2.5 pb-2 text-xs font-large uppercase shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
                     data-te-ripple-init
                     data-te-ripple-color="rose">
-                    Sign in
+                    Sign Up
                 </button>
                 <p class="mt-2 text-center text-neutral-800 dark:text-neutral-200">
                     Already have an account?
