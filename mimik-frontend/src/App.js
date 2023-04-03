@@ -14,23 +14,42 @@ import EventsList from "./components/EventsList";
 
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import AuthProvider from "./providers/Auth.provider";
 // import AddEvent from "./components/addEvent";
+const SecureRoute = (Component) => {
+  return (
+    <AuthProvider>
+      <Navbar isAuth={true} />
+      <Component />
+    </AuthProvider>
+  );
+};
 
+const BaseRoute = (Component) => {
+  return (
+    <>
+      <Navbar isAuth={false} />
+      <Component />
+    </>
+  );
+};
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/signIn" element={<SignIn />}></Route>
-        <Route path="/signUp" element={<SignUp />}></Route>
-        <Route path="/addEvent" element={<AddEvent />}></Route>
-        <Route path="/EventDetails/:id" element={<EventDetails />}></Route>
-        <Route path="/events" element={<EventsList />}></Route>
-        <Route path="/EventsHome" element={<EventsHome />}></Route>
-        <Route path="/reset" element={<ResetPassword />}></Route>
-        <Route path="/updateEvent" element={<UpdateEvent />}></Route>
-        <Route path="/EventsList" element={<EventsList />}></Route>
+        <Route path="/" element={BaseRoute(Home)}></Route>
+        <Route path="/signIn" element={BaseRoute(SignIn)}></Route>
+        <Route path="/signUp" element={BaseRoute(SignUp)}></Route>
+        <Route path="/addEvent" element={SecureRoute(AddEvent)}></Route>
+        <Route
+          path="/EventDetails/:id"
+          element={SecureRoute(EventDetails)}
+        ></Route>
+        <Route path="/events" element={SecureRoute(EventsList)}></Route>
+        <Route path="/EventsHome" element={SecureRoute(EventsHome)}></Route>
+        <Route path="/reset" element={BaseRoute(ResetPassword)}></Route>
+        <Route path="/updateEvent" element={SecureRoute(UpdateEvent)}></Route>
+        <Route path="/EventsList" element={SecureRoute(EventsList)}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
