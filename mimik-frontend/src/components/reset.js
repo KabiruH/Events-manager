@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 export default function ResetPassword () {
@@ -50,6 +50,7 @@ export default function ResetPassword () {
              onSubmit={handleResetPassword}
             class="outline outline-offset-2 outline-pink-500 w-1/4 bg-dark-rose rounded-lg bg-rose-50"> <br/>
           <h1 class = "text-center text-2xl text-rose-600">Reset Password</h1>
+          <p>{message}</p>
 
           <h3 className="mt-2 text-center">Email</h3>  
               <br/>  <div class="relative mb-6">
@@ -104,8 +105,9 @@ export default function ResetPassword () {
                         class="text-rose-600 text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
                     >Register</Link>
                 </p>
+                
             </form>
-            <p>{message}</p>
+            
         </div>
 
     )

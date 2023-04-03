@@ -23,7 +23,7 @@ export default function SignIn () {
       .then((response) => response.json())
       .then((data) => {
         // If login is successful, navigate to the home page
-        if (data.status === navigate("/EventsList")) {
+        if (data.status === navigate("/events")) {
           ;
         } else {
           // If login fails, display an error message

@@ -13,7 +13,8 @@ export default function AddEvent() {
         location: "",
         age_limit: "",
         date: "",
-        time: ""
+        time: "",
+        // user_id: 5
     });
 
     const handleSubmit = async (e) => {
@@ -38,8 +39,8 @@ export default function AddEvent() {
                     age_limit: "",
                     time: "",
                 })
-                navigate("./EventsHome")
-             }  
+                navigate("./events")
+            }
             else {
                 setMessage("Failed to add event. Please try again later.");
             }
@@ -69,13 +70,16 @@ export default function AddEvent() {
                 <h3 className="mt-2 text-center">Title</h3>
                 <br />  <div class="relative mb-6">
 
+
+
+
                     <input
                         type="text"
                         class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         id="title"
                         value={event.title}
                         onChange={handleChange}
-                        required
+
                     />
 
                     <label
@@ -83,6 +87,8 @@ export default function AddEvent() {
                         class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-neutral-200"
                     >Title
                     </label>
+
+
 
                 </div>
 
@@ -143,12 +149,12 @@ export default function AddEvent() {
                 <h4 className="mt-2 text-center">Age limit</h4>  <br />
                 <div class="relative mb-6" data-te-input-wrapper-init>
                     <input
-                        type="number"
+                        type="integer"
                         class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                         name="ageLimit"
                         value={event.age_limit}
                         onChange={handleChange}
-                        required
+
 
                     />
                     <label
@@ -169,7 +175,7 @@ export default function AddEvent() {
                         required
 
                     />
-                    
+
                 </div>
 
                 <h4 className="mt-2 text-center">Time</h4>  <br />
@@ -184,7 +190,7 @@ export default function AddEvent() {
                         required
 
                     />
-                    
+
                 </div>
 
                 <button

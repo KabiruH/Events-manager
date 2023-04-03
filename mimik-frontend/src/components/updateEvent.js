@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function UpdateEvent() {
 
@@ -11,13 +13,15 @@ export default function UpdateEvent() {
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
+    const { id } = useParams();
+    const navigate = useNavigate();
 
     const handleUpdateEvent = async (e) => {
         e.preventDefault();
         const eventDetails = { title, description, location, ageLimit, time };
         try {
-            const response = await fetch( 'http://localhost:3000/events/:id', {
-                method: "PATCH",
+            const response = await fetch( `http://localhost:3000/events/20`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -25,6 +29,7 @@ export default function UpdateEvent() {
             });
             if (response.ok) {
                 // handle success case
+                navigate('/events')
                 console.log("Event updated successfully!");
             } else {
                 // handle error case

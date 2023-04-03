@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate} from "react-router-dom";
 import formatDate from "../utilities/formatdate";
 import { useParams } from "react-router-dom";
 
@@ -6,6 +7,7 @@ function EventDetails() {
   const { id } = useParams();
   const [event, setEvent] = useState("");
   const [isbooked, setIsbooked] = useState(false);
+  const navigate = useNavigate();
 
   // handle book ticket
   function handleBookTicket() {
@@ -23,6 +25,28 @@ function EventDetails() {
         console.error("Error:", error);
       });
   }, [id]);
+
+// handle delete
+
+function handleDelete() {
+  fetch(`http://localhost:3000/events/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Deleted:", data);
+      navigate("/events");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+
+
   return (
     <div className="mb-10">
       {/* heading */}
@@ -142,6 +166,14 @@ function EventDetails() {
           >
             <i className="fa-solid fa-ticket mr-2"></i>
             {!isbooked ? "Get Ticket" : "Booked"}
+          </button>
+          <Link to='/updateEvent'className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80"> Update
+
+          </Link>
+          <button 
+          onClick={handleDelete}
+          className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80"> Delete 
+
           </button>
         </div>
       </div>
