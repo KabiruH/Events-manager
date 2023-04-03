@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_02_104125) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_02_162835) do
   create_table "attendees", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -62,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_02_104125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
   end
 
 end

@@ -73,7 +73,9 @@ Speaker.create([
     email: "johndoe@example.com",
     event_id: "EVT001",
     organisation: "ABC Company",
-    job_title: "CEO"
+    job_title: "CEO",
+    
+
   },
   {
     name: "Jane Smith",
@@ -110,5 +112,5 @@ Speaker.create([
     event_id: "EVT003"
   }
  ])
- 
+
  puts "done seeding"

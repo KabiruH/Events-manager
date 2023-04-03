@@ -914,3 +914,231 @@ Migrating to AddeventIdToUsers (20230402104125)
   [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddPasswordResetColumnsToUser (20230402162835)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime(6)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230402162835"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2023-04-02 19:32:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.7.4/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.4ms | Allocations: 660)
+Completed 200 OK in 24ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 5290)
+
+
+Started GET "/users" for ::1 at 2023-04-02 19:33:53 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 307)
+
+
+  
+SyntaxError (/home/name/Development/code/phase4/Ph4Project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/favicon.ico" for ::1 at 2023-04-02 19:33:53 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/user" for ::1 at 2023-04-02 19:34:01 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+Started GET "/users" for ::1 at 2023-04-02 19:34:09 +0300
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 258)
+
+
+  
+SyntaxError (/home/name/Development/code/phase4/Ph4Project/Events-manager/app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+    validates :email, format: { with: URI::M...
+              ^
+):
+  
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/models/user.rb:9: syntax error, unexpected symbol literal, expecting `do' or '{' or '('
+app/controllers/users_controller.rb:5:in `index'
+Started GET "/users" for ::1 at 2023-04-02 19:34:39 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.78ms)
+Completed 200 OK in 71ms (Views: 53.5ms | ActiveRecord: 2.8ms | Allocations: 29429)
+
+
+Started GET "/users" for ::1 at 2023-04-02 19:35:46 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.02ms)
+Completed 200 OK in 68ms (Views: 39.2ms | ActiveRecord: 1.3ms | Allocations: 47940)
+
+
+Started POST "/password/reset" for 127.0.0.1 at 2023-04-02 19:37:16 +0300
+  
+ActionController::RoutingError (uninitialized constant PasswordController
+Did you mean?  PasswordsController):
+  
+Started POST "/password/reset" for 127.0.0.1 at 2023-04-02 19:41:53 +0300
+  
+ActionController::RoutingError (uninitialized constant PasswordController
+Did you mean?  PasswordsController):
+  
+Started POST "/password/reset" for 127.0.0.1 at 2023-04-02 19:43:10 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/password/reset"):
+  
+Started POST "/passwords/reset" for 127.0.0.1 at 2023-04-02 19:43:24 +0300
+  
+SyntaxError (/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:12: syntax error, unexpected local variable or method, expecting '}'
+...   render json: {status: 'ok’}, status: :ok
+...                          ^~~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:14: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+...json: {error: [’Email address not found. Please check and ...
+...                        ^~~~~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:14: syntax error, unexpected ']', expecting `end'
+...Please check and try again.’]}, status: :not_found
+...                              ^
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:29: syntax error, unexpected local variable or method, expecting '}'
+...   render json: {status: 'ok’}, status: :ok
+...                          ^~~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:33: else without rescue is useless
+    else
+    ^~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:34: syntax error, unexpected `not', expecting `do' or '{' or '('
+...der json: {error:  [’Link not valid or expired. Try genera...
+...                            ^~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:34: syntax error, unexpected ']', expecting `end'
+... Try generating a new link.’]}, status: :not_found
+...                              ^
+):
+  
+app/controllers/passwords_controller.rb:12: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:14: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:14: syntax error, unexpected ']', expecting `end'
+app/controllers/passwords_controller.rb:29: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:33: else without rescue is useless
+app/controllers/passwords_controller.rb:34: syntax error, unexpected `not', expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:34: syntax error, unexpected ']', expecting `end'
+app/controllers/passwords_controller.rb:12: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:14: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:14: syntax error, unexpected ']', expecting `end'
+app/controllers/passwords_controller.rb:29: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:33: else without rescue is useless
+app/controllers/passwords_controller.rb:34: syntax error, unexpected `not', expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:34: syntax error, unexpected ']', expecting `end'
+Started POST "/passwords/reset" for 127.0.0.1 at 2023-04-02 19:43:49 +0300
+  
+SyntaxError (/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:12: syntax error, unexpected local variable or method, expecting '}'
+...   render json: {status: 'ok’}, status: :ok
+...                          ^~~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:14: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+...json: {error: [’Email address not found. Please check and ...
+...                        ^~~~~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:14: syntax error, unexpected ']', expecting `end'
+...Please check and try again.’]}, status: :not_found
+...                              ^
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:29: syntax error, unexpected local variable or method, expecting '}'
+...   render json: {status: 'ok’}, status: :ok
+...                          ^~~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:33: else without rescue is useless
+    else
+    ^~~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:34: syntax error, unexpected `not', expecting `do' or '{' or '('
+...der json: {error:  [’Link not valid or expired. Try genera...
+...                            ^~~
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:34: syntax error, unexpected ']', expecting `end'
+... Try generating a new link.’]}, status: :not_found
+...                              ^
+/home/name/Development/code/phase4/Ph4Project/Events-manager/app/controllers/passwords_controller.rb:37: syntax error, unexpected `end', expecting end-of-input):
+  
+app/controllers/passwords_controller.rb:12: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:14: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:14: syntax error, unexpected ']', expecting `end'
+app/controllers/passwords_controller.rb:29: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:33: else without rescue is useless
+app/controllers/passwords_controller.rb:34: syntax error, unexpected `not', expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:34: syntax error, unexpected ']', expecting `end'
+app/controllers/passwords_controller.rb:37: syntax error, unexpected `end', expecting end-of-input
+app/controllers/passwords_controller.rb:12: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:14: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:14: syntax error, unexpected ']', expecting `end'
+app/controllers/passwords_controller.rb:29: syntax error, unexpected local variable or method, expecting '}'
+app/controllers/passwords_controller.rb:33: else without rescue is useless
+app/controllers/passwords_controller.rb:34: syntax error, unexpected `not', expecting `do' or '{' or '('
+app/controllers/passwords_controller.rb:34: syntax error, unexpected ']', expecting `end'
+app/controllers/passwords_controller.rb:37: syntax error, unexpected `end', expecting end-of-input
+Started POST "/passwords/reset" for 127.0.0.1 at 2023-04-02 19:45:13 +0300
+Processing by PasswordsController#reset as */*
+  Parameters: {"email"=>"mayme.bradtke@mills-boehm.com", "token"=>"[FILTERED]", "password_digest"=>"[FILTERED]", "password"=>{"email"=>"mayme.bradtke@mills-boehm.com", "token"=>"[FILTERED]", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/passwords_controller.rb:25:in `reset'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 404 Not Found in 20ms (Views: 10.6ms | ActiveRecord: 0.6ms | Allocations: 4965)
+
+
+Started POST "/passwords/reset" for 127.0.0.1 at 2023-04-02 19:45:26 +0300
+Processing by PasswordsController#reset as */*
+  Parameters: {"email"=>"mayme.bradtke@mills-boehm.com", "password_digest"=>"[FILTERED]", "password"=>{"email"=>"mayme.bradtke@mills-boehm.com", "password_digest"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/controllers/passwords_controller.rb:25:in `reset'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 404 Not Found in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 604)
+
+
+Started GET "/passwords/reset" for ::1 at 2023-04-02 19:45:55 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/passwords/reset"):
+  
+Started GET "/rails/info/routes?path=" for ::1 at 2023-04-02 19:46:01 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>""}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 6075)
+
+
+Started GET "/users" for ::1 at 2023-04-02 19:46:06 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.32ms)
+Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.4ms | Allocations: 7488)
+
+
+Started GET "/events" for ::1 at 2023-04-02 20:04:04 +0300
+Processing by EventsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Filter chain halted as :authorize rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.9ms | Allocations: 198)
+
+
+Started GET "/attendees" for ::1 at 2023-04-02 20:04:13 +0300
+Processing by AttendeesController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/attendees_controller.rb:33:in `set_event'
+  [1m[36mAttendee Load (0.3ms)[0m  [1m[34mSELECT "attendees".* FROM "attendees"[0m
+  ↳ app/controllers/attendees_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 64ms (Views: 2.9ms | ActiveRecord: 2.1ms | Allocations: 25005)
+
+
+Started GET "/speakers" for ::1 at 2023-04-02 20:04:22 +0300
+Processing by SpeakersController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/speakers_controller.rb:33:in `set_event'
+  [1m[36mSpeaker Load (0.3ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers"[0m
+  ↳ app/controllers/speakers_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.07ms)
+Completed 200 OK in 38ms (Views: 28.9ms | ActiveRecord: 2.1ms | Allocations: 18368)
+
+
