@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ isAuth }) {
+  const logOut = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+    window.location.href("/");
+  };
   return (
     <nav className="flex items-center justify-between bg-white h-20 text-gray-600 w-full px-60">
       <div>
@@ -15,24 +20,43 @@ function Navbar() {
               <i className="fa-sharp fa-solid fa-house mr-1"></i>Home
             </Link>{" "}
           </li>
-          <li>
-            {" "}
-            <Link to="/events">
-              <i className="fa-regular fa-calendar-days mr-1"></i>Events
-            </Link>{" "}
-          </li>
-          <li>
-            {" "}
-            <Link to="/signIn">
-              <i className="fa-solid fa-right-to-bracket mr-1"></i>Login
-            </Link>{" "}
-          </li>
-          <li className="bg-rose-600 p-2 text-white rounded-lg hover:opacity-80">
-            {" "}
-            <Link to="/signUp">
-              Signup<i className="fa-solid fa-arrow-right ml-1"></i>
-            </Link>{" "}
-          </li>
+          {isAuth ? (
+            <>
+              {" "}
+              <li>
+                {" "}
+                <Link to="/events">
+                  <i className="fa-regular fa-calendar-days mr-1"></i>Events
+                </Link>{" "}
+              </li>{" "}
+              <li
+                onClick={logOut}
+                className="bg-rose-600 p-2 text-white rounded-lg hover:opacity-80"
+              >
+                {" "}
+                <i className="fa-solid fa-right-from-bracket mr-1"></i>
+                Logout
+              </li>
+            </>
+          ) : null}
+
+          {!isAuth ? (
+            <>
+              {" "}
+              <li>
+                {" "}
+                <Link to="/signIn">
+                  <i className="fa-solid fa-right-to-bracket mr-1"></i>Login
+                </Link>{" "}
+              </li>
+              <li className="bg-rose-600 p-2 text-white rounded-lg hover:opacity-80">
+                {" "}
+                <Link to="/signUp">
+                  Signup<i className="fa-solid fa-arrow-right ml-1"></i>
+                </Link>{" "}
+              </li>{" "}
+            </>
+          ) : null}
         </ul>
       </div>
     </nav>
