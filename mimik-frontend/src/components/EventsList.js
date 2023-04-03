@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import EventItem from "./eventItem";
+import { Link } from "react-router-dom";
 
-export const EventsList = () => {
+const EventsList = () => {
+  const [events, setEvents] = useState([]);
+  // get all events
+  useEffect(() => {
+    fetch("http://localhost:3000/events")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setEvents(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
+
   return (
     <div className="w-3/4 m-auto p-4 flex flex-col gap-4">
       <div className="flex gap-2 text-4xl items-center py-5 mx-auto">
@@ -18,18 +33,30 @@ export const EventsList = () => {
           <input placeholder="search events" className="flex-1 outline-none" />
           <i className="fa-solid fa-magnifying-glass text-gray-500"></i>
         </div>
-        <button className="bg-rose-600 hover:bg-opacity-80 text-white px-4 py-2 rounded-lg">
-          + Add event
-        </button>
+        <Link to="/addEvent">
+          <button className="bg-rose-600 hover:bg-opacity-80 text-white px-4 py-2 rounded-lg">
+            + Add event
+          </button>
+        </Link>
       </div>
 
       <div className="flex flex-wrap  gap-4 ">
-        {Array(20)
+        {/* {Array(20)
           .fill(0)
           .map((e) => (
             <EventItem key={Math.random()} />
-          ))}
+          ))} */}
+        {events.map((event) => (
+          <EventItem
+            key={event.id}
+            title={event.title}
+            location={event.location}
+            date={event.date}
+            id={event.id}
+          />
+        ))}
       </div>
     </div>
   );
 };
+export default EventsList;

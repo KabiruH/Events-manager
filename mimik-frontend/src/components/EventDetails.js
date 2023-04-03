@@ -1,14 +1,62 @@
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate} from "react-router-dom";
+import formatDate from "../utilities/formatdate";
+import { useParams } from "react-router-dom";
+
 function EventDetails() {
+  const { id } = useParams();
+  const [event, setEvent] = useState("");
+  const [isbooked, setIsbooked] = useState(false);
+  const navigate = useNavigate();
+
+  // handle book ticket
+  function handleBookTicket() {
+    setIsbooked(!isbooked);
+  }
+  // get all events
+  useEffect(() => {
+    fetch(`http://localhost:3000/events/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setEvent(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, [id]);
+
+// handle delete
+
+function handleDelete() {
+  fetch(`http://localhost:3000/events/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Deleted:", data);
+      navigate("/events");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
+
+
+
   return (
     <div className="mb-10">
       {/* heading */}
 
       <div className="bg-gray-700">
         <h1 className="uppercase py-8 text-rose-100 text-4xl font-semibold text-center">
-          Women in Tech Event
+          {event.title}
         </h1>
         <p className="text-white text-center pb-5 italic font-thin">
-          17th June, 2023, Nairobi, Kenya.
+          {formatDate(event.date)}
         </p>
       </div>
       {/* body */}
@@ -17,7 +65,7 @@ function EventDetails() {
           {/* image */}
           <div>
             <img
-              src="https://wallpapercave.com/wp/wp2349410.jpg"
+              src="/assets/pexels-luis-quintero-2774556.jpg"
               alt="eventDetails"
               className="h-96 w-1/2 m-auto"
             />
@@ -32,13 +80,7 @@ function EventDetails() {
                 About the event
               </h3>
             </div>
-            <p>
-              Lorem ipsum dolor sit amet, vel ei probo inimicus instructior, his
-              porro ubique definitionem in. Sed dicat ornatus recusabo an. Pro
-              eu malorum ornatus evertitur, ad mea populo tamquam suscipit. Nec
-              no aeque inimicus constituto. Has mundi utamur eu, id omnis
-              mandamus est, eos quaestio explicari eu.
-            </p>
+            <p>{event.description}</p>
           </div>
 
           {/* speakers */}
@@ -104,22 +146,34 @@ function EventDetails() {
         <div className="border p-2 flex flex-col gap-5 h-fit">
           <div className="flex gap-2">
             <p>Location:</p>
-            <p className="font-bold">Kenya cinema</p>
+            <p className="font-bold">{event.location}</p>
           </div>
           <div className="flex gap-2">
             <p>Date:</p>
-            <p className="font-bold">July, 15 2023</p>
+            <p className="font-bold">{formatDate(event.date)}</p>
           </div>
           <div className="flex gap-2">
             <p>Age limit:</p>
-            <p className="font-bold">50+</p>
+            <p className="font-bold">{event.age_limit}</p>
           </div>
           <div className="flex gap-2">
             <p>Capacity:</p>
-            <p className="font-bold">500</p>
+            <p className="font-bold">{event.capacity}</p>
           </div>
-          <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
-            <i className="fa-solid fa-ticket mr-2"></i>Get Ticket
+          <button
+            onClick={handleBookTicket}
+            className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80"
+          >
+            <i className="fa-solid fa-ticket mr-2"></i>
+            {!isbooked ? "Get Ticket" : "Booked"}
+          </button>
+          <Link to='/updateEvent'className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80"> Update
+
+          </Link>
+          <button 
+          onClick={handleDelete}
+          className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80"> Delete 
+
           </button>
         </div>
       </div>
