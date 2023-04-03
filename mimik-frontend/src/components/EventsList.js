@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EventItem from "./eventItem";
+import { Link } from "react-router-dom";
 
 const EventsList = () => {
   const [events, setEvents] = useState([]);
@@ -15,6 +16,7 @@ const EventsList = () => {
         console.error("Error:", error);
       });
   }, []);
+
   return (
     <div className="w-3/4 m-auto p-4 flex flex-col gap-4">
       <div className="flex gap-2 text-4xl items-center py-5 mx-auto">
@@ -31,9 +33,11 @@ const EventsList = () => {
           <input placeholder="search events" className="flex-1 outline-none" />
           <i className="fa-solid fa-magnifying-glass text-gray-500"></i>
         </div>
-        <button className="bg-rose-600 hover:bg-opacity-80 text-white px-4 py-2 rounded-lg">
-          + Add event
-        </button>
+        <Link to="/addEvent">
+          <button className="bg-rose-600 hover:bg-opacity-80 text-white px-4 py-2 rounded-lg">
+            + Add event
+          </button>
+        </Link>
       </div>
 
       <div className="flex flex-wrap  gap-4 ">
@@ -48,6 +52,7 @@ const EventsList = () => {
             title={event.title}
             location={event.location}
             date={event.date}
+            id={event.id}
           />
         ))}
       </div>
