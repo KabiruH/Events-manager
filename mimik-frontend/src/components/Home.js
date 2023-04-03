@@ -22,8 +22,9 @@ function Home() {
           </h1>
           <p>
             Whether you're looking to learn something new,
-            <br /> connect with like-minded individuals, or simply <br /> have a
-            good time, MIMiK has an event for you.
+            <br /> connect with like-minded individuals, or simply have a good
+            time, <br />
+            MIMiK has an event for you.
           </p>
           <Link to="/signIn">
             <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
