@@ -22,7 +22,7 @@ export default function EventItem({ title, location, date, id }) {
           <p>Date:</p>
           <p className="font-bold">{formatDate(date)}</p>
         </div>
-        <Link to="/EventDetails/1">
+        <Link to={`/EventDetails/${id}`}>
           <button class="bg-rose-600 hover:opacity-80 text-white px-4 py-2 rounded-lg">
             Details
           </button>
