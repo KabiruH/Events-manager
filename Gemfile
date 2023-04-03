@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.5"
+ruby "2.7.4"
 
 # gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 
-gem 'jwt', '~> 2.7'
+# gem 'jwt', '~> 2.7'
 
 gem 'rack-cors', '~> 2.0', '>= 2.0.1'
 gem 'jwt'
