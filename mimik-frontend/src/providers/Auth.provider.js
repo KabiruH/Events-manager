@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState("");
+export const AuthProvider = ({ children, required }) => {
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -12,13 +12,21 @@ export const AuthProvider = ({ children }) => {
     setUser(user);
   }, []);
 
-  if (!user) {
+  if (!user && required) {
     navigate("/signIn");
     return null;
   }
 
+  const logOut = () => {
+    localStorage.removeItem("user");
+    navigate("/");
+    setUser(null);
+  };
+
   return (
-    <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, logOut }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

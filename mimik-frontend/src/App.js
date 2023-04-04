@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import SignIn from "./components/signIn";
 import SignUp from "./components/signUp";
-import AddEvent from "./components/addEvent";
+import AddEvent from "./components/AddEvent";
 import EventDetails from "./components/EventDetails";
 import EventsHome from "./components/EventsHome";
 import ResetPassword from "./components/reset";
@@ -18,8 +18,8 @@ import AuthProvider from "./providers/Auth.provider";
 // import AddEvent from "./components/addEvent";
 const SecureRoute = (Component) => {
   return (
-    <AuthProvider>
-      <Navbar isAuth={true} />
+    <AuthProvider required={true}>
+      <Navbar />
       <Component />
     </AuthProvider>
   );
@@ -27,10 +27,10 @@ const SecureRoute = (Component) => {
 
 const BaseRoute = (Component) => {
   return (
-    <>
-      <Navbar isAuth={false} />
+    <AuthProvider required={false}>
+      <Navbar />
       <Component />
-    </>
+    </AuthProvider>
   );
 };
 function App() {
@@ -48,7 +48,10 @@ function App() {
         <Route path="/events" element={SecureRoute(EventsList)}></Route>
         <Route path="/EventsHome" element={SecureRoute(EventsHome)}></Route>
         <Route path="/reset" element={BaseRoute(ResetPassword)}></Route>
-        <Route path="/updateEvent" element={SecureRoute(UpdateEvent)}></Route>
+        <Route
+          path="/updateEvent/:id"
+          element={SecureRoute(UpdateEvent)}
+        ></Route>
         <Route path="/EventsList" element={SecureRoute(EventsList)}></Route>
       </Routes>
       <Footer />

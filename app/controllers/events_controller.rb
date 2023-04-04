@@ -69,7 +69,7 @@ class EventsController < ApplicationController
 
     def event_params
         params.permit(
-            :title, :description, :location, :age_limit, :image, :capacity, :date, :time
+            :title, :description, :location, :age_limit, :image, :capacity, :date, :user_id, 
         )
     end
 end

@@ -32,7 +32,6 @@ export default function SignUp() {
         if (!response.ok) {
           throw new Error("Registration failed. Please try again later.");
         }
-        localStorage.setItem("user", JSON.stringify({ email, password }));
         navigate("/signIn");
         // Registration successful, navigate to home page or display success message
       })

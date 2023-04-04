@@ -47,13 +47,7 @@ const EventsList = () => {
             <EventItem key={Math.random()} />
           ))} */}
         {events.map((event) => (
-          <EventItem
-            key={event.id}
-            title={event.title}
-            location={event.location}
-            date={event.date}
-            id={event.id}
-          />
+          <EventItem key={event.id} {...event} />
         ))}
       </div>
     </div>
