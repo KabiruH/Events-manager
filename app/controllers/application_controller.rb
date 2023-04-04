@@ -1,5 +1,13 @@
 class ApplicationController < ActionController::API
-    def encode_token(payload)
+    include ActionController::Cookies
+    def encode_token(uid, email)
+        payload = {
+            data:{
+                uid: uid,
+                email: email
+            },
+            exp: Time.now.to_i + (6*3600)
+        }
         JWT.encode(payload, "secret")
     end
 
@@ -25,7 +33,7 @@ class ApplicationController < ActionController::API
 
         if decoded_token
             # take out the user id
-            user_id = decoded_token[0]['id']
+            @uid = decoded_token[0]['data']['uid'].to_i
             # [{payload},{header},{verify_signature}]
             # {
             #     "id": 10,
@@ -33,10 +41,38 @@ class ApplicationController < ActionController::API
             # }
         
             # find the user that matches the ID
-            user = User.find_by(id: user_id)
+            # user = User.find_by(id: user_id)
         # else 
         #     render json: {error: 'User not found'}, status: :not_found
         end
+    end
+    def user
+        User.find(@uid)
+    end
+    
+     # store user id in session
+     def save_user(id)
+        session[:uid] = id
+        session[:expiry] =Time.now.to_i + (6*3600)
+    end
+     # check for session expiry
+     def session_expired?
+        session[:expiry] ||= Time.now
+        puts session[:expiry]
+        puts session[:uid]
+        puts @uid
+        puts Time.now.to_i
+        time_diff = session[:expiry].to_i - Time.now.to_i
+        puts time_diff
+
+        unless time_diff > 0
+            render json: { message: 'failed', data: { info: 'Your session has expired. Please login again to continue' } },  status: 401 
+        end
+    end
+       # delete user id in session
+       def remove_user
+        session.delete(:uid)
+        session[:expiry] = Time.now
     end
 
     def authorize
