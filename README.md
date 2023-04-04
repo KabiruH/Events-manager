@@ -1,24 +1,54 @@
-# README
+# Project Name: MIMiK Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails and React web application that allows users to create an account, login, view available events, and create, update, or delete events.
+Prerequisites
 
-Things you may want to cover:
+    Ruby 
+    Rails 
+   
 
-* Ruby version
+## Installation
 
-* System dependencies
+    Clone the repository to your local machine:
+    
+            git@github.com:KabiruH/Events-manager.git
+            
+ ## Install dependencies:
 
-* Configuration
+ruby
 
-* Database creation
+            $ bundle install && npm install
+            
+## Set up the database:
 
-* Database initialization
+            $ rails db:create && rails db:migrate && rails db:seed
 
-* How to run the test suite
+## Usage
 
-* Services (job queues, cache servers, search engines, etc.)
+    Start the server:
 
-* Deployment instructions
+      ruby
 
-* ...
+             $ rails s
+
+    Open the web app deployed link in your web browser for the React app.
+    
+    Register a new account, or log in with the provided test account:
+    
+    
+    
+  From the dashboard, you can view all available events, add a new event, edit an existing event, or delete an event.
+  
+ ## Authors
+ 
+               https://github.com/KabiruH
+
+               https://github.com/IrisThuo
+
+               https://github.com/sainamercy
+
+               https://github.com/Tusko97
+  
+## License
+
+This project is licensed under the MIT License.
