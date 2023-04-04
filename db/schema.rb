@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_03_060205) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_04_090147) do
   create_table "attendees", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -27,8 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_03_060205) do
     t.string "location"
     t.string "age_limit"
     t.integer "capacity"
-    t.datetime "date"
-    t.datetime "time"
+    t.datetime "date", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
