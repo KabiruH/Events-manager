@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
-   # before_action :authorize
-
-    # GET /events
+    # before_action :authorize
+    # skip_before_action :authorize, only: [:index]
+    # # GET /events
     def index
         render json: Event.all, status: :ok
     end

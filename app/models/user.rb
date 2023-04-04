@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password 
 
-  has_many :events
+  has_many :events, dependent: :destroy
   has_many :attendees, through: :events, dependent: :destroy
     # has password utility func
      # hashing of a password 123456 => skdjfksdvj@jnfkdjnsjdf

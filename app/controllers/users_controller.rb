@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    # before_action :session_expired?
     # GET /users
     def index
         #get users
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
         #create a new user
         user = User.create(user_params)
         if user.valid?
+            save_user(user.id)
             render json:user, status: :created
         else
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
@@ -66,7 +68,8 @@ class UsersController < ApplicationController
 
         # validate whether the password is true
         if user && user.authenticate(user_params[:password])
-            token = encode_token({id: user.id})
+            save_user(user.id)
+            token = encode_token(user.id, user.email)
             render json: { user: user, token: token}, status: :ok
 
         # return an invalid email or password scheme
@@ -74,7 +77,11 @@ class UsersController < ApplicationController
             render json: { error: 'Invalid email or password'}, status: :unauthorized
         end
     end
-
+    # logout user
+    def logout
+        remove_user
+        render json: {message: 'Logout successful'}
+    end
     # GET ALL EVENTS RELATED TO A USER ID
     def get_all_user_events
     end
