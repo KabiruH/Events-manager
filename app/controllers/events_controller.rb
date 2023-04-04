@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
-    before_action :authorize
-
-    # GET /events
+    # before_action :authorize
+    # skip_before_action :authorize, only: [:index]
+    # # GET /events
     def index
         render json: Event.all, status: :ok
     end
@@ -69,7 +69,7 @@ class EventsController < ApplicationController
 
     def event_params
         params.permit(
-            :title, :description, :location, :age_limit, :image, :capacity, :date, :time
+            :title, :description, :location, :age_limit, :image, :capacity, :date, :user_id, 
         )
     end
 end
