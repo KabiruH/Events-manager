@@ -20,12 +20,18 @@ export default function SignIn() {
     })
       .then((response) => {
         if (response.ok) {
-          localStorage.setItem("user", JSON.stringify({ email, password }));
-          navigate("/events");
+          return response.json();
         } else {
           // If login fails, display an error message
           setErrorMsg("Wrong username or password");
         }
+      })
+      .then((data) => {
+        localStorage.setItem("user", JSON.stringify(data));
+        // navigate("/events");
+
+        //CHANGE IN PROD
+        window.location.href = "http://localhost:3001/events";
       })
       .catch((error) => {
         console.error("Error:", error);

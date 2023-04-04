@@ -31,13 +31,7 @@ function EventsHome() {
             <EventItem key={Math.random()} />
           ))} */}
         {events.slice(0, 6).map((event) => (
-          <EventItem
-            key={event.id}
-            title={event.title}
-            location={event.location}
-            date={event.date}
-            id={event.id}
-          />
+          <EventItem key={event.id} {...event} />
         ))}
       </div>
       <Link to="/events">

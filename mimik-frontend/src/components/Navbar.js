@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../providers/Auth.provider";
 
-function Navbar({ isAuth }) {
+function Navbar() {
+  const auth = useAuthContext();
+
+  const isAuth = auth?.user || null;
+
   const logOut = () => {
-    localStorage.removeItem("user");
-    window.location.reload();
-    window.location.href("/");
+    auth.logOut();
   };
   return (
     <nav className="flex items-center justify-between bg-white h-20 text-gray-600 w-full px-60">
