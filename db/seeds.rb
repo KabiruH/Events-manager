@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first
 puts "seeding"
 
-5.times do
-  # create a movie with random data
+20.times do
+  # create a user with random data
   User.create(
     username: Faker::Internet.username(specifier: 5..10),
-    password_digest: Faker::Internet.password(min_length: 8),
+    password: "password",
     email: Faker::Internet.email,
     gender: Faker::Gender.type,
     age: Faker::Number.within(range: 13..70)
@@ -25,8 +25,8 @@ Event.create(
   location: "Central Park, New York City",
   age_limit: "18+",
   capacity: 5000,
-  date: DateTime.new(2023, 5, 20),
-  time: DateTime.new(2023, 5, 20, 12, 0, 0)
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
 )
 Event.create(  
 title: "Autism foundation",
@@ -35,8 +35,8 @@ description: "We take a look at how we have come in our knowledge and understand
 location: "Central Park, New York City",
 age_limit: "18+",
 capacity: 5000,
-date: DateTime.new(2023, 5, 20),
-time: DateTime.new(2023, 5, 20, 12, 0, 0)
+date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+user_id: 1
 )
 Event.create(
   title: "Charity Walk",
@@ -45,8 +45,8 @@ Event.create(
   location: "Golden Gate Park, San Francisco",
   age_limit: "All ages",
   capacity: 1000,
-  date: DateTime.new(2023, 6, 10),
-  time: DateTime.new(2023, 6, 10, 9, 0, 0)
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
 )
 Event.create(
   title: "Fast Festival",
@@ -55,8 +55,8 @@ Event.create(
   location: "Golden Gate Park, San Francisco",
   age_limit: "All ages",
   capacity: 1000,
-  date: DateTime.new(2023, 6, 10),
-  time: DateTime.new(2023, 6, 10, 9, 0, 0)
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
 )
 Event.create(
   title: "Tech Conference",
@@ -65,8 +65,8 @@ Event.create(
   location: "Moscone Center, San Francisco",
   age_limit: "18+",
   capacity: 500,
-  date: DateTime.new(2023, 7, 15),
-  time: DateTime.new(2023, 7, 15, 10, 0, 0)
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
 )
  Sponsor.create(
   title: "Google",
@@ -91,21 +91,21 @@ Speaker.create([
   {
     name: "John Doe",
     email: "johndoe@example.com",
-    event_id: "EVT001",
+    event_id: 2,
     organisation: "ABC Company",
     job_title: "CEO"
   },
   {
     name: "Jane Smith",
     email: "janesmith@example.com",
-    event_id: "EVT002",
+    event_id: 1,
     organisation: "XYZ Corporation",
     job_title: "VP of Marketing"
   },
   {
     name: "Bob Johnson",
     email: "bobjohnson@example.com",
-    event_id: "EVT003",
+    event_id: 2,
     organisation: "123 Enterprises",
     job_title: "CTO"
   }
@@ -115,19 +115,19 @@ Speaker.create([
     name: "Samantha Lee",
     email: "samanthalee@example.com",
     user_id: 1,
-    event_id: "EVT001"
+    event_id: 3
   },
   {
     name: "David Kim",
     email: "davidkim@example.com",
     user_id: 2,
-    event_id: "EVT002"
+    event_id: 1
   },
   {
     name: "Jennifer Chen",
     email: "jenniferchen@example.com",
     user_id: 3,
-    event_id: "EVT003"
+    event_id: 3
   }
  ])
  
