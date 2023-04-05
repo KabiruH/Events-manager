@@ -16840,3 +16840,197 @@ Processing by EventsController#index as */*
 Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 1.5ms | Allocations: 9381)
 
 
+Started GET "/events" for ::1 at 2023-04-05 02:35:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (61.18ms)
+Completed 200 OK in 107ms (Views: 84.8ms | ActiveRecord: 3.7ms | Allocations: 96823)
+
+
+Started GET "/events" for ::1 at 2023-04-05 02:35:05 +0300
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.23ms)
+Completed 200 OK in 26ms (Views: 24.7ms | ActiveRecord: 0.9ms | Allocations: 9381)
+
+
+Started GET "/events" for ::1 at 2023-04-05 02:35:19 +0300
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.3ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.3ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.3ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.75ms)
+Completed 200 OK in 38ms (Views: 36.3ms | ActiveRecord: 1.5ms | Allocations: 9403)
+
+
+Started GET "/events" for ::1 at 2023-04-05 02:35:19 +0300
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.3ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.66ms)
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 1.5ms | Allocations: 9381)
+
+
+Started GET "/events" for ::1 at 2023-04-05 02:35:20 +0300
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.39ms)
+Completed 200 OK in 34ms (Views: 32.1ms | ActiveRecord: 1.0ms | Allocations: 9403)
+
+
+Started GET "/events" for ::1 at 2023-04-05 02:35:20 +0300
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (44.82ms)
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 1.5ms | Allocations: 9382)
+
+
+Started GET "/events" for ::1 at 2023-04-05 02:54:31 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (69.82ms)
+Completed 200 OK in 128ms (Views: 100.7ms | ActiveRecord: 3.3ms | Allocations: 96960)
+
+
+Started GET "/events" for ::1 at 2023-04-05 02:54:31 +0300
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.2ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 4]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 6]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mSpeaker Load (0.1ms)[0m  [1m[34mSELECT "speakers".* FROM "speakers" WHERE "speakers"."event_id" = ?[0m  [["event_id", 7]]
+[active_model_serializers]   ↳ app/controllers/events_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.9ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 1.0ms | Allocations: 9381)
+
+
