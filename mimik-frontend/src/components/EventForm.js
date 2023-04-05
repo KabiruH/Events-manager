@@ -47,97 +47,86 @@ export default function EventForm({
   };
 
   return (
-    <div class="flex items-center justify-center min-h-screen">
-      <form onSubmit={onSubmit} class="w-1/2 bg-dark-rose rounded-lg border">
-        {" "}
-        <br />
-        <h1 class="text-center text-2xl text-rose-600 uppercase">
+    <div className="flex items-center justify-center min-h-screen mb-5">
+      <form
+        onSubmit={onSubmit}
+        className="w-1/2 border rounded-lg shadow-lg p-4 flex flex-col gap-4"
+      >
+        <h1 className="text-center text-2xl text-rose-600 uppercase">
           {isUpdatePage ? "Update this event" : "Create a new event"}
         </h1>
-        {errorMsg && <p>{errorMsg}</p>}
-        <h3 className="px-4">Title</h3>
-        <br />{" "}
-        <div class="relative mb-6 px-4">
+        {errorMsg && (
+          <p className="text-center text-xl text-red-500">{errorMsg}</p>
+        )}
+        <h3>Title</h3>
+        <div>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            class="block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="title"
+            className="border rounded-lg w-full p-3 text-gray-700"
           />
         </div>
-        <h3 className="px-4">Image Url</h3>
-        <br />{" "}
-        <div class="relative mb-6 px-4">
+        <h3>Image Url</h3>
+        <div>
           <input
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-            class="block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="title"
+            className="border rounded-lg w-full p-3 text-gray-700"
           />
         </div>
-        <h3 className="px-4">Description</h3>
-        <br />{" "}
-        <div class="relative mb-6 px-4">
+        <h3>Description</h3>
+        <div>
           <textarea
             rows="5"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="desc"
+            className="border rounded-lg w-full text-gray-700"
           />
         </div>
-        <h4 className="px-4">Location</h4> <br />
-        <div class="relative mb-6 px-4" data-te-input-wrapper-init>
+        <h3>Location</h3>
+        <div>
           <input
             type="text"
-            class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="location"
+            className="border rounded-lg w-full p-3 text-gray-700"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-        <h4 className="px-4">Age limit</h4> <br />
-        <div class="relative mb-6 px-4" data-te-input-wrapper-init>
+        <h3>Age limit</h3>
+        <div>
           <input
             type="text"
-            class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="agelim"
+            className="border rounded-lg w-full p-3 text-gray-700"
             value={ageLimit}
             onChange={(e) => setAgeLimit(e.target.value)}
           />
         </div>
-        <h4 className="px-4">Capacity</h4> <br />
-        <div class="relative mb-6 px-4" data-te-input-wrapper-init>
+        <h3>Capacity</h3>
+        <div>
           <input
             type="number"
-            class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="agelim"
+            className="border rounded-lg w-full p-3 text-gray-700"
             value={capacity}
             onChange={(e) => setCapacity(e.target.value)}
           />
         </div>
-        <h4 className="px-4">Date</h4> <br />
-        <div class="relative mb-6 px-4" data-te-input-wrapper-init>
+        <h3>Date</h3>
+        <div>
           <input
             type="datetime-local"
-            class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="date"
+            className="border rounded-lg w-full p-3 text-gray-700"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
-        <div className="flex justify-center  py-4 text-white">
-          <button
-            type="submit"
-            class="bg-rose-600 items-center text-center rounded px-6 pt-2.5 pb-2  font-large uppercase shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-            data-te-ripple-init
-            data-te-ripple-color="rose"
-          >
-            {isUpdatePage ? "Update" : "Create"} Event
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="bg-rose-600 rounded-lg w-48 p-3 mt-2 text-white hover:opacity-80 m-auto"
+        >
+          {isUpdatePage ? "Update" : "Create"} Event
+        </button>
       </form>
     </div>
   );

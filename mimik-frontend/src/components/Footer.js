@@ -1,10 +1,6 @@
 import React from "react";
 
-
-
-
 function Footer() {
-
   return (
     <footer className="bg-neutral-200 text-center text-white dark:bg-neutral-600">
       <div className="pt-9">
@@ -82,8 +78,6 @@ function Footer() {
           MIMiK Events
         </span>
       </div>
-
-     
     </footer>
   );
 }
