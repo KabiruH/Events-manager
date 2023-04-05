@@ -64,7 +64,7 @@ function EventDetails() {
             <img
               src={event.image || "/assets/pexels-luis-quintero-2774556.jpg"}
               alt="eventDetails"
-              className="h-96 w-1/2 m-auto"
+              className="h-96 w-3/4 m-auto rounded-lg"
             />
           </div>
           {/* about */}
@@ -140,7 +140,7 @@ function EventDetails() {
           </div>
         </div>
         {/* aside */}
-        <div className="border p-2 flex flex-col gap-5 h-fit">
+        <div className="border p-2 flex flex-col gap-5 h-fit rounded-lg">
           <div className="flex gap-2">
             <p>Location:</p>
             <p className="font-bold">{event.location}</p>
@@ -164,20 +164,19 @@ function EventDetails() {
             <i className="fa-solid fa-ticket mr-2"></i>
             {!isbooked ? "Get Ticket" : "Booked"}
           </button>
-          <Link
-            to={`/updateEvent/${id}`}
-            className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80"
-          >
-            {" "}
-            Update
-          </Link>
-          <button
-            onClick={handleDelete}
-            className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80"
-          >
-            {" "}
-            Delete
-          </button>
+          <div className="flex justify-between w-full border-t py-2">
+            <Link to={`/updateEvent/${id}`}>
+              <button className="bg-gray-600 rounded-lg w-48 text-white hover:opacity-80 p-2 mr-2">
+                Update
+              </button>
+            </Link>
+            <button
+              onClick={handleDelete}
+              className="bg-gray-600 rounded-lg w-48 text-white hover:opacity-80 p-2"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>

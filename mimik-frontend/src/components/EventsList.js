@@ -18,7 +18,7 @@ const EventsList = () => {
   }, []);
 
   return (
-    <div className="w-3/4 m-auto p-4 flex flex-col gap-4">
+    <div className="w-3/4 m-auto p-4 flex flex-col gap-4 min-h-screen">
       <div className="flex gap-2 text-4xl items-center py-5 mx-auto">
         <div className="h-24 w-24 rounded-full bg-rose-600 text-white flex items-center justify-center">
           <i className="fa-solid fa-heart"></i>

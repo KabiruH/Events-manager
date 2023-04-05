@@ -46,67 +46,59 @@ export default function SignUp() {
 
       <form
         onSubmit={handleFormSubmit}
-        class="outline outline-offset-2 outline-pink-500 w-1/4 bg-dark-rose rounded-lg bg-rose-50"
+        className="border w-96 rounded-lg shadow-lg p-4 flex flex-col gap-4"
       >
-        {" "}
-        <br />
         <h1 class="text-center text-2xl text-rose-600">Sign Up Here</h1>
         {errorMessage && <div>{errorMessage}</div>}
-        <h3 className="mt-2 text-center">Username</h3>
-        <br />{" "}
-        <div class="relative mb-6">
+        <h3 className="">Username</h3>
+        <div>
           <input
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
-            class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="username"
+            className="border rounded-lg w-full p-3"
             required
           />
         </div>
-        <h3 className="mt-2 text-center">Email</h3>
-        <br />{" "}
-        <div class="relative mb-6">
+        <h3>Email</h3>
+        <div>
           <input
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            class="peer block min-h-[auto] w-full items-center rounded border-2  bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="emali"
+            className="border rounded-lg w-full p-3"
             required
           />
         </div>
-        <h4 className="mt-2 text-center">Password</h4> <br />
-        <div class="relative mb-6" data-te-input-wrapper-init>
+        <h4>Password</h4>
+        <div>
           <input
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="pass"
+            className="border rounded-lg w-full p-3"
             required
           />
         </div>
-        <h4 className="mt-2 text-center">Age</h4> <br />
-        <div class="relative mb-6" data-te-input-wrapper-init>
+        <h4>Age</h4>
+        <div>
           <input
             onChange={(event) => setAge(event.target.value)}
             value={age}
             type="number"
             min="0"
             max="100"
-            class="peer block min-h-[auto] w-full rounded border-2 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-            id="age"
+            className="border rounded-lg w-full p-3"
             required
           />
         </div>
-        <h4 className="mt-2 text-center">Gender</h4> <br />
-        <div class="relative mb-7" data-te-input-wrapper-init>
+        <div>
           <select
             value={gender}
             onChange={(event) => setGender(event.target.value)}
             id="gender"
             name="gender"
+            className="border rounded-lg w-full p-3"
           >
             <option value="">Select gender</option>
             <option value="male">Male</option>
@@ -115,18 +107,16 @@ export default function SignUp() {
         </div>
         <button
           type="submit"
-          class="bg-rose-600 items-center text-center rounded px-6 pt-2.5 pb-2 text-xs font-large uppercase shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-          data-te-ripple-init
-          data-te-ripple-color="rose"
+          className="bg-rose-600 rounded-lg w-48 p-3 mt-2 text-white hover:opacity-80 m-auto"
         >
           Sign Up
         </button>
-        <p class="mt-2 text-center text-neutral-800 dark:text-neutral-200">
+        <p className="mt-2 text-center text-neutral-800 dark:text-neutral-200">
           Already have an account?
           <br />{" "}
           <Link
             to="/signIn"
-            class="text-rose-600 text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+            className="text-rose-600 text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
           >
             Login Here
           </Link>

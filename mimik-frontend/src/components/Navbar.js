@@ -34,7 +34,7 @@ function Navbar() {
               </li>{" "}
               <li
                 onClick={logOut}
-                className="bg-rose-600 p-2 text-white rounded-lg hover:opacity-80"
+                className="bg-rose-600 p-2 text-white rounded-lg hover:opacity-80 cursor-pointer"
               >
                 {" "}
                 <i className="fa-solid fa-right-from-bracket mr-1"></i>
