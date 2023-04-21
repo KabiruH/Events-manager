@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "~>2.7.0"
 
 # gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 
@@ -24,7 +24,7 @@ gem "puma", "~> 5.0"
 # gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+# gem "redis",~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -57,3 +57,5 @@ end
 gem 'faker', '~> 3.1', '>= 3.1.1'
 
 gem "active_model_serializers", "~> 0.10.12"
+
+
