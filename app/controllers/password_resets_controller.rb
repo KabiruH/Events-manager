@@ -1,17 +1,17 @@
-Class PasswordResetsController < ApplicationController
-def index
-end
+class PasswordResetsController < ApplicationController
+# def index
+# end
+  def create
+    user = User.find_by(email: params[:email])
 
-def create
-  user = User.find_by(email: params[:email])
-
-  if user.present?
-    PasswordMailer.with(user).reset.deliver_later
+    if user.present?
+      PasswordMailer.with(user).reset.deliver_later
+    else
+      redirect_to root_path, notice: "If Email Found,password reset link sent"
+    end
   end
-    redirect_to root_path, notice: "If Email Found,password reset link sent"
 
 end
 
-end
 
 
