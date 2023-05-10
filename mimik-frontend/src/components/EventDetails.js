@@ -30,7 +30,7 @@ function EventDetails() {
 
   const handleDelete = () => {
     navigate("/events");
-    fetch(`http://localhost:3000/events/${id}`, {
+    fetch(`https://event-manager-1mtv.onrender.com/events/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
