@@ -12,16 +12,19 @@ export default function AddEvent() {
 
   const handleSubmit = async (event) => {
     try {
-      const response = await fetch("http://localhost:3000/events", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...event,
-          user_id: user.user.id,
-        }),
-      });
+      const response = await fetch(
+        "https://event-manager-1mtv.onrender.com/events",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...event,
+            user_id: user.user.id,
+          }),
+        }
+      );
 
       if (response.ok) {
         navigate("/events");

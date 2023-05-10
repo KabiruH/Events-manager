@@ -15,7 +15,7 @@ function EventDetails() {
   }
   // get all events
   useEffect(() => {
-    fetch(`http://localhost:3000/events/${id}`)
+    fetch(`https://event-manager-1mtv.onrender.com/events/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
