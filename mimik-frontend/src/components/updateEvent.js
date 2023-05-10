@@ -10,7 +10,9 @@ export default function UpdateEvent() {
 
   useEffect(() => {
     const getEvent = async () => {
-      const response = await fetch(`http://localhost:3000/events/${id}`);
+      const response = await fetch(
+        `https://event-manager-1mtv.onrender.com/events/${id}`
+      );
       const data = await response.json();
       setEvent(data);
     };
