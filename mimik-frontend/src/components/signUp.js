@@ -21,7 +21,7 @@ export default function SignUp() {
       gender: gender,
     };
 
-    fetch("http://127.0.0.1:3000/users", {
+    fetch("https://event-manager-1mtv.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

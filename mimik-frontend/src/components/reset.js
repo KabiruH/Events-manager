@@ -17,16 +17,19 @@ export default function ResetPassword() {
   const handleResetPassword = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:3000/users/:id", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+    const response = await fetch(
+      "https://event-manager-1mtv.onrender.com/users/:id",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
 
     const data = await response.json();
 

@@ -19,13 +19,16 @@ export default function UpdateEvent() {
 
   const handleUpdateEvent = async (eventDetails) => {
     try {
-      const response = await fetch(`http://localhost:3000/events/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(eventDetails),
-      });
+      const response = await fetch(
+        `https://event-manager-1mtv.onrender.com/events/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(eventDetails),
+        }
+      );
       if (response.ok) {
         // handle success case
         navigate(`/events`);
