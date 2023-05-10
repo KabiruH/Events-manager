@@ -31,7 +31,7 @@ export default function SignIn() {
         // navigate("/events");
 
         //CHANGE IN PROD
-        window.location.href = "https://event-manager-1mtv.onrender.com/events";
+        window.location.href = "https://events-manager-rose.vercel.app/events";
       })
       .catch((error) => {
         console.error("Error:", error);
