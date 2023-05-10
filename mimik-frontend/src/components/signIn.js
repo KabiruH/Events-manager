@@ -11,7 +11,7 @@ export default function SignIn() {
     e.preventDefault();
 
     // POST request to the server with the login details
-    fetch("http://localhost:3000/login", {
+    fetch("https://event-manager-1mtv.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
