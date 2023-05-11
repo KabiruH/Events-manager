@@ -36,6 +36,7 @@ export default function SignIn() {
       })
       .catch((error) => {
         toast.error(error.message);
+        setIsLoading(false);
       });
   };
   return (
