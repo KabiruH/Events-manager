@@ -8,7 +8,7 @@ function EventDetails() {
   const { id } = useParams();
   const [event, setEvent] = useState("");
   const [isbooked, setIsbooked] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const auth = useAuthContext();
 
   // handle book ticket
@@ -30,7 +30,6 @@ function EventDetails() {
   // handle delete
 
   const handleDelete = () => {
-    navigate("/events");
     fetch(`https://event-manager-1mtv.onrender.com/events/${id}`, {
       method: "DELETE",
       headers: {
@@ -39,6 +38,8 @@ function EventDetails() {
     })
       .then((response) => {
         // navigate("/events");
+        window.location.reload();
+        window.location.href = "/events";
       })
       .catch((error) => {
         console.error("Error:", error);
