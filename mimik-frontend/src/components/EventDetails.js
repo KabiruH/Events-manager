@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import formatDate from "../utilities/formatdate";
 import { useParams } from "react-router-dom";
+import { useAuthContext } from "../providers/Auth.provider";
 
 function EventDetails() {
   const { id } = useParams();
   const [event, setEvent] = useState("");
   const [isbooked, setIsbooked] = useState(false);
   const navigate = useNavigate();
+  const auth = useAuthContext();
 
   // handle book ticket
   function handleBookTicket() {
@@ -18,7 +20,6 @@ function EventDetails() {
     fetch(`https://event-manager-1mtv.onrender.com/events/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setEvent(data);
       })
       .catch((error) => {
@@ -164,19 +165,21 @@ function EventDetails() {
             <i className="fa-solid fa-ticket mr-2"></i>
             {!isbooked ? "Get Ticket" : "Booked"}
           </button>
-          <div className="flex justify-between w-full border-t py-2">
-            <Link to={`/updateEvent/${id}`}>
-              <button className="bg-gray-600 rounded-lg w-48 text-white hover:opacity-80 p-2 mr-2">
-                Update
+          {auth?.user.user.id === event?.user?.id && (
+            <div className="flex justify-between w-full border-t py-2">
+              <Link to={`/updateEvent/${id}`}>
+                <button className="bg-gray-600 rounded-lg w-48 text-white hover:opacity-80 p-2 mr-2">
+                  Update
+                </button>
+              </Link>
+              <button
+                onClick={handleDelete}
+                className="bg-gray-600 rounded-lg w-48 text-white hover:opacity-80 p-2"
+              >
+                Delete
               </button>
-            </Link>
-            <button
-              onClick={handleDelete}
-              className="bg-gray-600 rounded-lg w-48 text-white hover:opacity-80 p-2"
-            >
-              Delete
-            </button>
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
