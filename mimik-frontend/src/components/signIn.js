@@ -6,10 +6,12 @@ import "react-toastify/dist/ReactToastify.css";
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isloading, setIsLoading] = useState(false);
   // const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     // POST request to the server with the login details
     fetch("https://event-manager-1mtv.onrender.com/login", {
@@ -23,6 +25,7 @@ export default function SignIn() {
         if (response.ok) {
           return response.json();
         } else {
+          setIsLoading(true);
           // If login fails, display an error message
           throw new Error("Wrong email or password, please try again");
         }
@@ -70,7 +73,14 @@ export default function SignIn() {
           type="submit"
           className="bg-rose-600 rounded-lg w-48 p-3 mt-2 text-white hover:opacity-80 m-auto"
         >
-          Sign in
+          {!isloading ? (
+            "Sign in"
+          ) : (
+            <div>
+              <i className="fa-solid fa-spinner animate-spin mr-2"></i>
+              Loading...
+            </div>
+          )}
         </button>
         <p class="mt-2 text-center text-neutral-800 dark:text-neutral-200">
           Forgot Password?

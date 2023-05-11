@@ -9,10 +9,12 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
+  const [isloading, setIsLoading] = useState(false);
   // const [errorMessage, setErrorMessage] = useState(null);
 
   function handleFormSubmit(event) {
     event.preventDefault();
+    setIsLoading(true);
 
     const userDetails = {
       username: username,
@@ -112,7 +114,14 @@ export default function SignUp() {
           type="submit"
           className="bg-rose-600 rounded-lg w-48 p-3 mt-2 text-white hover:opacity-80 m-auto"
         >
-          Sign Up
+          {!isloading ? (
+            "Sign up"
+          ) : (
+            <div>
+              <i className="fa-solid fa-spinner animate-spin mr-2"></i>
+              Loading...
+            </div>
+          )}
         </button>
         <p className="mt-2 text-center text-neutral-800 dark:text-neutral-200">
           Already have an account?
