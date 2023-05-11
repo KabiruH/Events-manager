@@ -7,16 +7,14 @@
 #   Character.create(name: "Luke", movie: movies.first
 puts "seeding"
 
-20.times do
-  # create a user with random data
+  # create a user1 data
   User.create(
-    username: Faker::Internet.username(specifier: 5..10),
+    username: "user",
     password: "password",
-    email: Faker::Internet.email,
-    gender: Faker::Gender.type,
-    age: Faker::Number.within(range: 13..70)
+    email: "user@mail.com",
+    gender: "Female",
+    age: 18
   )
-end
 
 Event.create(
   title: "Music Festival",
@@ -68,6 +66,80 @@ Event.create(
   date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
   user_id: 1
 )
+Event.create(
+  title: "Women CEOs Forum",
+  image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F470577949%2F180703518709%2F1%2Foriginal.20230316-134707?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C74%2C1200%2C600&s=f39254b1b6c375d4ac066fbb6e092c73",
+  description: "The Women CEOs Forum is a convention of like-minded women entrepreneurs, enterprise leaders and support organizations from various industries across Africa. The participants will come together to discuss their ambitions, goals, and challenges in the business environment.",
+  location: "Weston Hotel, Nairobi, Kenya",
+  age_limit: "18+",
+  capacity: 500,
+  date: Faker::Time.forward(days: 5,  period: :morning, format: :long),
+  user_id: 1
+)
+Event.create(
+  title: "Sauti JENGE OPEN MIC",
+  image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F502451239%2F545458234983%2F1%2Foriginal.20230427-155313?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C3000%2C1500&s=66b44a9655179da3c31b60014dfa3f6c",
+  description: "JENGE Kulture is a Pan African social change initiative that promotes a culture of social concern and creative, innovative action across the continent. We connect and support Africa’s Creators, Innovators and Changemakers and their work in creating and sustaining social change in Africa",
+  location: "JENGE Creator Space, Nairobi, Kenya",
+  age_limit: "18+",
+  capacity: 1000,
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
+)
+Event.create(
+  title: "CyFrica 2023 - Kenya",
+  image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F472983179%2F1367565260943%2F1%2Foriginal.20230320-112507?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C50%2C1600%2C800&s=f09036ecb63b136f025420699bcf37d9",
+  description: "With the launch of the National Cybersecurity Strategy by the Government of Kenya, there is a need for more collaborative efforts between the public and private sectors to mitigate the emerging threat landscape. To facilitate such collaborations and bring together the best-in-class cybersecurity experts, Tradepass is hosting CyFrica in Nairobi, Kenya on 18 – 19 July 2023. The event will attract 600+ pre-qualified cybersecurity experts including the Heads of Information Security, Risk, Compliance, Forensics and Cyber Law from the leading public and private enterprises across the country.",
+  location: "KICC, Nairobi, Kenya",
+  age_limit: "18+",
+  capacity: 100,
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
+)
+Event.create(
+  title: "Book Club",
+  image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F461632609%2F184713249715%2F1%2Foriginal.20230306-115055?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C2160%2C1080&s=ee317fa26408028718f3f2454609f92b",
+  description: "We are pleased to introduce our Book Club!
+
+  Each month we’ll announce a new pick of a book (or a part of it) that we’ll read right alongside you and other readers. The books we read will span a range of topics — from spiritualism, philosophy, history, religion, relationships, healthy living, science, and more.",
+  location: "Big Square Moi Avenue, Nairobi, Kenya",
+  age_limit: "15+",
+  capacity: 50,
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
+)
+Event.create(
+  title: "13th AMSUN SCIENTIFIC CONFRENCE",
+  image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F483890409%2F1471817846173%2F1%2Foriginal.20230403-133953?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C0%2C1280%2C640&s=6257a3d4ec7f5786b631b28a8700df1c",
+  description: "Exploring frontiers of Medicine through diversified research.",
+  location: "Chandaria Center for Performing Arts, Nairobi, Kenya",
+  age_limit: "21+",
+  capacity: 500,
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
+)
+Event.create(
+  title: "Web Hosting and Domain Names: Everything You Need to Know",
+  image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F423964689%2F1347219007203%2F1%2Flogo.20230113-084337?w=940&auto=format%2Ccompress&q=75&sharp=10&s=62224c76edc2233694986a41066ebe2f",
+  description: "Are you looking to start your own website or online business? In this event, we will cover everything you need to know about web hosting and domain names. We'll discuss the different types of hosting available, how to choose the right hosting for your website, and the importance of domain names in building your online brand.",
+  location: "Hostraha Limited , Nairobi, Kenya",
+  age_limit: "16+",
+  capacity: 100,
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
+)
+Event.create(
+  title: "We The Medicine - Healing Our Inner Child 2023. Guided Meditation.",
+  image: "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F192974469%2F124429251107%2F1%2Foriginal.20211129-000629?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C83%2C794%2C397&s=6a7d05d396a86a7d5f27aca6cff06222",
+  description: "Here you will find a community of souls who are searching to be all that they can, to awaken and remember their inner source of power, love.
+
+  Together we will be holding space to share loving kindness meditations and learn new skills and empowerment tools to help deal with PTSD, anxiety, depression, fear & childhood traumas.",
+  location: "Online",
+  age_limit: "18+",
+  capacity: 200,
+  date: Faker::Time.forward(days: 5,  period: :evening, format: :long),
+  user_id: 1
+)
  Sponsor.create(
   title: "Google",
   organisation: "Google Inc.",
@@ -91,7 +163,7 @@ Speaker.create([
   {
     name: "John Doe",
     email: "johndoe@example.com",
-    event_id: 2,
+    event_id: 1,
     organisation: "ABC Company",
     job_title: "CEO"
   },
@@ -105,7 +177,7 @@ Speaker.create([
   {
     name: "Bob Johnson",
     email: "bobjohnson@example.com",
-    event_id: 2,
+    event_id: 1,
     organisation: "123 Enterprises",
     job_title: "CTO"
   }
