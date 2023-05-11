@@ -88,14 +88,16 @@ To run it in production, install
 2. Add events to the application by clicking on the `Add event` button on the events page.
 3. Updating and deleting events from the application is only applicable for events that have been created by the logged in user.
 
-   ```
-    Test user data.
+- Test user data.
 
-     email: user@mail.com
-     password: password
+  ```
 
-    This user has precreated events that can be  used to test `update, delete and create new events.
-   ```
+    email: user@mail.com
+    password: password
+
+  ```
+
+- This user has precreated events that can be used to test update, delete and create new events.
 
 ## Screenshots
 
@@ -108,8 +110,8 @@ To run it in production, install
   <br />
 
 - Events page
-![Events Image](mimik-frontend/public/assets/events.png)
-<br />
+  ![Events Image](mimik-frontend/public/assets/events.png)
+  <br />
 
 - Event Details
   ![Event Details Image](mimik-frontend/public/assets/details.png)
