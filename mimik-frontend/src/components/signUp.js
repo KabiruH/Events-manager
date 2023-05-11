@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -10,7 +10,6 @@ export default function SignUp() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   // const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -34,8 +33,11 @@ export default function SignUp() {
         if (!response.ok) {
           throw new Error("Registration failed. Please try again.");
         }
-        navigate("/signIn");
-        // Registration successful, navigate to home page or display success message
+        return response.json();
+      })
+      .then((data) => {
+        localStorage.setItem("user", JSON.stringify(data));
+        window.location.href = "/events";
       })
       .catch((error) => {
         toast.error(error.message);

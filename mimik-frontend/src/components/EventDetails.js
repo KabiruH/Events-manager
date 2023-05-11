@@ -37,7 +37,6 @@ function EventDetails() {
       },
     })
       .then((response) => {
-        // navigate("/events");
         window.location.reload();
         window.location.href = "/events";
       })
@@ -166,7 +165,7 @@ function EventDetails() {
             <i className="fa-solid fa-ticket mr-2"></i>
             {!isbooked ? "Get Ticket" : "Booked"}
           </button>
-          {auth?.user.user.id === event?.user?.id && (
+          {auth?.user?.user?.id === event?.user?.id && (
             <div className="flex justify-between w-full border-t py-2">
               <Link to={`/updateEvent/${id}`}>
                 <button className="bg-gray-600 rounded-lg w-48 text-white hover:opacity-80 p-2 mr-2">
