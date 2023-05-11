@@ -2,8 +2,11 @@ import React from "react";
 import Highlights from "./Highlights";
 import { Link } from "react-router-dom";
 import EventsHome from "./EventsHome";
+import { useAuthContext } from "../providers/Auth.provider";
 
 function Home() {
+  const auth = useAuthContext();
+  const isAuth = auth?.user;
   return (
     <div>
       <div className="h-screen">
@@ -26,11 +29,20 @@ function Home() {
             time, <br />
             MIMiK has an event for you.
           </p>
-          <Link to="/signIn">
-            <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
-              Get started <i className="fa-solid fa-arrow-right ml-1"></i>
-            </button>
-          </Link>
+          {!isAuth ? (
+            <Link to="/signIn">
+              <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
+                Get started <i className="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+            </Link>
+          ) : (
+            <Link to="/events">
+              <button className="bg-rose-600 rounded-lg w-48 p-2 text-white hover:opacity-80">
+                <i className="fa-solid fa-calendar-days mr-2"></i>See all Events
+                <i className="fa-solid fa-arrow-right ml-1"></i>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
       <Highlights />
