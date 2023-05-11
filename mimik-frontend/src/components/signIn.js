@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-  // const navigate = useNavigate();
+  // const [errorMsg, setErrorMsg] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,22 +24,20 @@ export default function SignIn() {
           return response.json();
         } else {
           // If login fails, display an error message
-          setErrorMsg("Wrong username or password");
+          throw new Error("Wrong email or password, please try again");
         }
       })
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data));
-        // navigate("/events");
-
-        //CHANGE IN PROD
-        window.location.href = "https://events-manager-rose.vercel.app/events";
+        window.location.href = "/events";
       })
       .catch((error) => {
-        console.error("Error:", error);
+        toast.error(error.message);
       });
   };
   return (
     <div className="flex items-center justify-center min-h-screen">
+      <ToastContainer />
       <form
         className="border w-96 rounded-lg shadow-lg p-4 flex flex-col gap-4"
         onSubmit={handleLogin}
@@ -46,7 +45,7 @@ export default function SignIn() {
         {" "}
         <br />
         <h1 className="text-center text-2xl text-rose-600">Login Here</h1>
-        {errorMsg && <p>{errorMsg}</p>}
+        {/* {errorMsg && <p>{errorMsg}</p>} */}
         <h3>Email</h3>
         <div>
           <input

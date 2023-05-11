@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -7,7 +9,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
-  const [errorMessage, setErrorMessage] = useState(null);
+  // const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
 
   function handleFormSubmit(event) {
@@ -30,26 +32,25 @@ export default function SignUp() {
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Registration failed. Please try again later.");
+          throw new Error("Registration failed. Please try again.");
         }
         navigate("/signIn");
         // Registration successful, navigate to home page or display success message
       })
       .catch((error) => {
-        setErrorMessage(error.message);
+        toast.error(error.message);
       });
   }
 
   return (
     <div class="flex items-center justify-center min-h-screen">
-      {errorMessage && <div>{errorMessage}</div>}
+      <ToastContainer />
 
       <form
         onSubmit={handleFormSubmit}
         className="border w-96 rounded-lg shadow-lg p-4 flex flex-col gap-4"
       >
         <h1 class="text-center text-2xl text-rose-600">Sign Up Here</h1>
-        {errorMessage && <div>{errorMessage}</div>}
         <h3 className="">Username</h3>
         <div>
           <input
